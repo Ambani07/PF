@@ -42,17 +42,28 @@ class CustomersController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
-            'surname' => 'required',
-            'email' => 'required'
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'required',
+            'street' => 'required',
+            'suburb' => 'required',
+            'city' => 'required',
+            'region' => 'required',
+            'contactPerson' => 'required',
+            'contactPersonPhone' => 'required',
+            'contactPersonCell' => 'required',
+            'contactPersonEmail' => 'required',
+            'term' => 'required'
         ]);
+
+        return $request;
 
         //create customer
         $customer = new Customer;
-        $customer->name = $request->input('name');
-        $customer->surname = $request->input('surname');
-        $customer->email = $request->input('email');
-        $customer->company = $request->input('company');
+        // $customer->name = $request->input('name');
+        // $customer->surname = $request->input('surname');
+        // $customer->email = $request->input('email');
+        // $customer->company = $request->input('company');
         $customer->save();
 
         return redirect('/customers')->with('success', 'Customer added.') ;

@@ -10649,8 +10649,22 @@ html {
   min-height: 100%;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+}
+
 body {
   height: 100%;
+  background-color: #F3F3F4 !important;
+}
+
+.form-control {
+  border-radius: 0px;
 }
 
 #wrapper {
@@ -10662,6 +10676,11 @@ body {
   width: 100%;
   padding-top: 1rem;
   padding-bottom: 80px;
+  margin-bottom: 50px;
+}
+
+form {
+  padding: 10px;
 }
 
 .scroll-to-top {
@@ -10688,6 +10707,10 @@ body {
 
 .scroll-to-top i {
   font-weight: 800;
+}
+
+.btn {
+  border-radius: 0px !important;
 }
 
 .smaller {
@@ -10969,6 +10992,15 @@ body.sidebar-toggled footer.sticky-footer {
   }
 }
 
+.card {
+  border: none;
+  border-radius: 0px;
+}
+
+.card-footer {
+  background-color: rgba(255, 255, 255, 0) !important;
+}
+
 .card-body-icon {
   position: absolute;
   z-index: 0;
@@ -10998,5 +11030,13 @@ body.sidebar-toggled footer.sticky-footer {
     -moz-column-count: 2;
          column-count: 2;
   }
+}
+
+.breadcrumb {
+  border-radius: 0px;
+}
+
+.sidebar .nav-item.dropdown .dropdown-toggle::after {
+  visibility: hidden !important;
 }
 

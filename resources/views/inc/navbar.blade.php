@@ -1,6 +1,6 @@
 <nav class="navbar shadow-sm navbar-expand navbar-dark bg-dark static-top">
     <div class="navbar-brand">
-      <a href="/index" >
+      <a href="/dashboard" >
         <img src="{{asset('images/BCX-Header2.png')}}" style="max-width: 25%;" alt="BCX logo">
       </a>
       <button class="btn btn-link btn-sm text-white" id="sidebarToggle" href="#">
