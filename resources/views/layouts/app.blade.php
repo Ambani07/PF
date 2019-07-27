@@ -22,8 +22,11 @@
         @include('inc.sidebar')
 
         <div class="container-fluid">
-            @include('inc.messages')
-            @yield('content')
+            <div id="content-wrapper">
+                @include('inc.messages')
+                @yield('content')
+            </div>
+            
             
         </div>
         @include('inc.footer')

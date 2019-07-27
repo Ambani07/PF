@@ -1,12 +1,21 @@
 // Styling for custom cards
 // Custom class for the background icon in card blocks
+
+.card{
+  border: none;
+  border-radius: 0px;
+}
+
+.card-footer{
+  background-color: rgba(255, 255, 255, 0) !important;
+}
 .card-body-icon {
     position: absolute;
     z-index: 0;
     top: -1.25rem;
     right: -1rem;
     opacity: 0.4;
-  
+
     font-size: 5rem;
     @include rotate;
   }

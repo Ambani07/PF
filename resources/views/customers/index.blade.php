@@ -1,7 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Customers</h1>
+    
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb mt-5 mb-5">
+        <li class="breadcrumb-item">
+            <a href="/dashboard">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">
+            <a href="/customers">Customers</a>
+        </li>
+        
+    </ol>
+    <h2 class="mb-5">Customers</h2>
     @if(count($customers) > 0)
         
         <table class="table">
@@ -21,8 +32,8 @@
                 @foreach($customers as $customer)
                     <tr>
                         <th scope="row">{{$customer->id}}</th>
-                        <td>{{$customer->name}}</td>
-                        <td>{{$customer->surname}}</td>
+                        <td>{{$customer->firstname}}</td>
+                        <td>{{$customer->lastname}}</td>
                         <td>{{$customer->email}}</td>
                         <td>{{$customer->company}}</td>
                         <td>{{$customer->created_at}}</td>

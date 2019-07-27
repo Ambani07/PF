@@ -21,9 +21,11 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="pagesDropdown" >
             <a class="dropdown-item" href="/customers">All Customers</a>
+
+            
             
             <div>
-                <a class="dropdown-item" href="" >Product name</a>
+                <a class="dropdown-item" href="/customers" >EI</a>
             </div>
             
             

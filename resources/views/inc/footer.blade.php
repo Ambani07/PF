@@ -3,7 +3,7 @@
 <footer class="sticky-footer">
 <div class="container my-auto">
     <div class="copyright text-center my-auto">
-    <span>Copyright © ISP | BCX 2019</span>
+    <span>Copyright © BCX | ISP 2019</span>
     </div>
 </div>
 </footer>

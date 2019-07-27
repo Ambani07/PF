@@ -3,12 +3,20 @@
 html {
     position: relative;
     min-height: 100%;
+    
+  }
+
+  h1, h2, h3, h4, h5, h6{
+    font-weight: 300;
   }
   
   body {
     height: 100%;
+    background-color: #F3F3F4 !important;
   }
-  
+  .form-control{
+    border-radius: 0px;
+  }
   #wrapper {
     display: flex;
     #content-wrapper {
@@ -16,9 +24,14 @@ html {
       width: 100%;
       padding-top: 1rem;
       padding-bottom: $sticky-footer-height;
+      margin-bottom: 50px;
     }
   }
   
+  form{
+    padding: 10px;
+  }
+
   // Scroll to top button
   .scroll-to-top {
     position: fixed;
@@ -41,5 +54,9 @@ html {
     i {
       font-weight: 800;
     }
+  }
+
+  .btn{
+    border-radius: 0px !important;
   }
   

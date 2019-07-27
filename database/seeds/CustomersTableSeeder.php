@@ -15,16 +15,23 @@ class CustomersTableSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 1 ; $i < 5; $i++){
+
             Customer::create([
-                'name' => 'customer ' . $i,
-                'surname' => 'customer '.$i,
-                'email' => Str::random(10),
-                'company' => 'bcx '.$i,
-            ])->customer()->attach(1);
-        }
-        $product = Product::find(1);
-        $product->customer()->attach(2);
+                'firstname' => 'Ambani',
+                'lastname' => 'Matsedu',
+                'email' => 'ambani@example.com',
+                'company' => 'BCX',
+                'street' => '1021 Lenchen Ave N',
+                'suburb' => 'Centurion Central',
+                'city' => 'Pretoria',
+                'region' => 'Centurion',
+                'contactPerson' => 'John',
+                'contactPersonPhone' => '+27 72 427 2236',
+                'contactPersonCell' => '+27 11 222 4785',
+                'contactPersonEmail' => 'john@gmail.com',
+                'term' => 2
+            ]);
+
         
     }
 }

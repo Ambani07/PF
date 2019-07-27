@@ -7,24 +7,24 @@
 @section('content')
 
 <!-- Breadcrumbs-->
-<ol class="breadcrumb mt-5">
+<ol class="breadcrumb mt-5 mb-5">
     <li class="breadcrumb-item">
-    <a href="#">Dashboard</a>
+    <a href="/dashboard">Dashboard</a>
     </li>
     <li class="breadcrumb-item active">Overview</li>
 </ol>
 
   <!-- Icon Cards-->
-  <div class="row tex-muted">
-    <div class="col-xl-3 col-sm-6 mb-3">
-      <div class="card text-muted bg-light o-hidden h-100">
+  <div class="row tex-muted mb-5">
+    <div class="col-xl-3 col-sm-6 mb-3 ">
+      <div class="card text-muted bg-light o-hidden h-100 shadow">
         <div class="card-body">
           <div class="card-body-icon">
             <i class="fa fa-fw fa-users"></i>
           </div>
-          <div class="mr-5">26 Customers</div>
+          <div class="mr-5">{{count($customers)}} Customers</div>
         </div>
-        <a class="card-footer text-muted clearfix small z-1" href="#">
+        <a class="card-footer text-muted clearfix small z-1" href="/customers">
           <span class="float-left">View Details</span>
           <span class="float-right">
             <i class="fa fa-angle-right"></i>
@@ -33,7 +33,7 @@
       </div>
     </div>
     <div class="col-xl-3 col-sm-6 mb-3">
-      <div class="card text-muted bg-light o-hidden h-100">
+      <div class="card text-muted bg-light o-hidden h-100 shadow">
         <div class="card-body">
           <div class="card-body-icon">
             <i class="fa fa-fw fa-random"></i>
@@ -49,7 +49,7 @@
       </div>
     </div>
     <div class="col-xl-3 col-sm-6 mb-3">
-      <div class="card text-muted bg-light o-hidden h-100">
+      <div class="card text-muted bg-light o-hidden h-100 shadow">
         <div class="card-body">
           <div class="card-body-icon">
             <i class="fa fa-fw fa-list"></i>
@@ -65,7 +65,7 @@
       </div>
     </div>
     <div class="col-xl-3 col-sm-6 mb-3">
-      <div class="card text-muted bg-light o-hidden h-100">
+      <div class="card text-muted bg-light o-hidden h-100 shadow">
         <div class="card-body">
           <div class="card-body-icon">
             <i class="fa fa-fw fa-ban"></i>
@@ -85,10 +85,10 @@
   <a class="btn btn-danger" href="/customers/create"> <i class="fa fa-plus"></i> Add customers</a>
 
 
-  <table class="table mt-5">
+  <table class="table mt-5 shadow">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">Name</th>
+      <th scope="col">Full Name</th>
       <th scope="col">Email</th>
       <th scope="col">Company</th>
       <th scope="col">Product</th>
@@ -97,30 +97,21 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Mark Otto</td>
-      <td>Mark.Otto@gmail.com</td>
-      <td>Telkom</td>
-      <td>EI</td>
-      <td>complete</td>
-      <td>24/07/2019</td>
-    </tr>
-    <tr>
-      <td>Mark Otto</td>
-      <td>Mark.Otto@gmail.com</td>
-      <td>Telkom</td>
-      <td>EI</td>
-      <td>complete</td>
-      <td>24/07/2019</td>
-    </tr>
-    <tr>
-      <td>Mark Otto</td>
-      <td>Mark.Otto@gmail.com</td>
-      <td>Telkom</td>
-      <td>EI</td>
-      <td>complete</td>
-      <td>24/07/2019</td>
-    </tr>
+    
+    @if ($customers)
+        @foreach ($customers as $customer)
+          <tr>
+            <td>{{$customer->firstname . ' ' . $customer->lastname}}</td>
+            <td>{{$customer->email}}</td>
+            <td>{{$customer->company}}</td>
+            <td>N/A</td>
+            <td>{{$customer->status}}</td>
+            <td>{{$customer->created_at}}</td>
+          </tr>
+        @endforeach
+    
+        
+    @endif
   </tbody>
 </table>
 @endsection
