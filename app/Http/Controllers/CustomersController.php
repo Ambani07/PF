@@ -45,6 +45,7 @@ class CustomersController extends Controller
             'firstname' => 'required',
             'lastname' => 'required',
             'email' => 'required',
+            // 'company' => 'required',
             'street' => 'required',
             'suburb' => 'required',
             'city' => 'required',
