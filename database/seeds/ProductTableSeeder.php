@@ -16,10 +16,10 @@ class ProductTableSeeder extends Seeder
         $now = Carbon::now()->toDateTimeString();
 
         Product::create([
-            'product_id' => 1,
+            'category_id' => 1,
             'customer_id' => 1,
             'term' => 4,
-            'vland_id' => '6421646213451',
+            'vlan_id' => '6421646213451',
             'circuit_no' => '2338121245',
             'no_ips' => '20',
             'total_bandwidth' => '50',

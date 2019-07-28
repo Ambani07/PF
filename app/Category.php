@@ -9,7 +9,7 @@ class Category extends Model
     //
     protected $table = "category";
 
-    public function customers(){
-        return $this->belongsTo('App\Customer');
+    public function categories(){
+        return $this->belongsTo('App\Product');
     }
 }

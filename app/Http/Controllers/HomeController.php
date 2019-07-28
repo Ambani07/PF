@@ -28,6 +28,12 @@ class HomeController extends Controller
         $products = Product::all();
         
         $customers = Customer::orderBy('created_at')->get();
+
+        $user_id = auth()->user('id');
+        // $user = User::find($user_id);
+        // dd($user_id);
+
+        // dd([$customers, $products->customer()]);
         
         return view('pages.index')->with(['customers' => $customers, 'products' => $products]);
     }
