@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Customer;
+use Session;
+
 class CustomersController extends Controller
 {
     /**
@@ -15,7 +17,7 @@ class CustomersController extends Controller
     {
 
         $customers = Customer::orderBy('created_at', 'desc')->get();
-        $customers = Customer::orderBy('created_at', 'desc')->paginate(1);
+        $customers = Customer::orderBy('created_at', 'desc')->paginate(2);
         // $customers = Customer::all();
 
 
@@ -42,9 +44,10 @@ class CustomersController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'firstname' => 'required',
+            'firstname' => 'required|min:2',
             'lastname' => 'required',
             'email' => 'required',
+            'company' => 'nullable',
             'street' => 'required',
             'suburb' => 'required',
             'city' => 'required',
@@ -52,21 +55,12 @@ class CustomersController extends Controller
             'contactPerson' => 'required',
             'contactPersonPhone' => 'required',
             'contactPersonCell' => 'required',
-            'contactPersonEmail' => 'required',
-            'term' => 'required'
+            'contactPersonEmail' => 'required'
         ]);
 
-        return $request;
+        Session::put('customer', $request->all());
 
-        //create customer
-        $customer = new Customer;
-        // $customer->name = $request->input('name');
-        // $customer->surname = $request->input('surname');
-        // $customer->email = $request->input('email');
-        // $customer->company = $request->input('company');
-        $customer->save();
-
-        return redirect('/customers')->with('success', 'Customer added.') ;
+        return redirect('/product/create');
     }
 
     /**

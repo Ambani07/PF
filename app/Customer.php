@@ -11,6 +11,6 @@ class Customer extends Model
     protected $fillable = ['name', 'surname', 'email', 'company', 'status'];
     
     public function products(){
-        return $this->hasMany('App\Product');
+        return $this->hasOne('App\Category');
     }
 }
