@@ -17,6 +17,7 @@ class CustomersTableSeeder extends Seeder
     {
 
             Customer::create([
+                'user_id' => 1,
                 'firstname' => 'Ambani',
                 'lastname' => 'Matsedu',
                 'email' => 'ambani@example.com',

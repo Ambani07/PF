@@ -56,7 +56,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'product_id' => 'required',
+            'category_id' => 'required',
             'term' => 'required',
             'vland_id' => 'required',
             'circuit_no' => 'required',
@@ -94,7 +94,7 @@ class ProductController extends Controller
 
         if($newCustomer->save()){
             $customerProduct = new Product;
-            $customerProduct->product_id = $request->input('product_id');
+            $customerProduct->category_id = $request->input('category_id');
             $customerProduct->customer_id = $newCustomer->id;
             $customerProduct->term = $request->input('term');
             $customerProduct->vland_id = $request->input('vland_id');
@@ -114,7 +114,7 @@ class ProductController extends Controller
 
 
             if($customerProduct->save()){
-                return redirect('customers');
+                return redirect('customers')->success('success', 'Customer created!');
             }else{
                 return redirect('customers.product');
             }
@@ -133,7 +133,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -145,6 +145,10 @@ class ProductController extends Controller
     public function edit($id)
     {
         //
+        $product = Product::find($id);
+        $categories = Category::all();
+
+        return view('customers.editProduct')->with(['product' => $product, 'categories' => $categories]);
     }
 
     /**
@@ -156,7 +160,45 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'category_id' => 'required',
+            'term' => 'required',
+            'vland_id' => 'required',
+            'circuit_no' => 'required',
+            'no_ips' => 'required',
+            'total_bandwidth' => 'required',
+            'local_bandwidth' => 'required',
+            'int_bandwidth' => 'required',
+            'accessType' => 'required',
+            'accessSpeed' => 'required',
+            'ei_option' => 'nullable',
+            'bandwidth_scheduling' => 'nullable',
+            'prioritisation' => 'nullable',
+            'product_name' => 'required',
+            'username' => 'required',
+            'access_username' => 'required'
+        ]);
+
+        $customerProduct = Product::find($id);
+        $customerProduct->category_id = $request->input('category_id');
+        $customerProduct->term = $request->input('term');
+        $customerProduct->vlan_id = $request->input('vland_id');
+        $customerProduct->circuit_no = $request->input('circuit_no');
+        $customerProduct->no_ips = $request->input('no_ips');
+        $customerProduct->total_bandwidth = $request->input('total_bandwidth');
+        $customerProduct->local_bandwidth = $request->input('local_bandwidth');
+        $customerProduct->int_bandwidth = $request->input('int_bandwidth');
+        $customerProduct->accessType = $request->input('accessType');
+        $customerProduct->accessSpeed = $request->input('accessSpeed');
+        $customerProduct->ei_option = $request->input('ei_option');
+        $customerProduct->bandwidth_scheduling = $request->input('bandwidth_scheduling');
+        $customerProduct->prioritisation = $request->input('prioritisation');
+        $customerProduct->product_name = $request->input('product_name');
+        $customerProduct->username = $request->input('username');
+        $customerProduct->access_username = $request->input('access_username');
+        $customerProduct->save();
+
+        return redirect('/customers')->with('success', 'Product updated successfully!');
     }
 
     /**
@@ -168,5 +210,20 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
+        $product = Product::find($id);
+
+        $found = Product::where('customer_id', $customer_id)->get();
+        $customer = Customer::find($product->customer_id);
+
+        if(count($found) == 1){
+            $customer->delete();
+            $product->delete();
+        }else{
+            $product->delete();
+        }
+
+        
+
+        return redirect('/customers')->with('success', 'Product Deleted');
     }
 }

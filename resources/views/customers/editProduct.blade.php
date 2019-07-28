@@ -10,10 +10,10 @@
             <a href="/customers">Customers</a>
         </li>
         <li class="breadcrumb-item">
-            <a href="/customers">Add Customer</a>
+            <a href="/customers">Product</a>
         </li>
         <li class="breadcrumb-item active">
-            <a href="/customers/">Add Product</a>
+            <a href="/customers/">Edit Product</a>
         </li>
 
     </ol>
@@ -23,15 +23,16 @@
 
                     {{-- {{ $customer['firstname'] }} --}}
                     
-                    {{ Form::open(['action' => 'ProductController@store', 'method'=> 'POST']) }}
-                    <h5><strong>Product Details</strong></h5>
+                    {{ Form::open(['action' => ['ProductController@update', $product->id], 'method'=> 'POST']) }}
+                    <h5><strong>Edit Product Details</strong></h5>
                     <div class="row">
                         <div class="col">
                             <div class="form-group">
                                 {{ Form::label('category_id', 'Product') }}
                                 <select name="category_id" class="form-control">
-                                    @foreach ($products as $product)
-                                        <option value="{{$product->id}}">{{$product->name}}</option>
+                                        <option value="{{$product->category->id}}">{{$product->category->name}}</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
                                     @endforeach
                                     
                                   </select>
@@ -41,6 +42,7 @@
                             <div class="form-group">
                             {{ Form::label('term', 'Term') }}
                             <select name="term" class="form-control">
+                                    <option value="{{$product->term}}">{{$product->term}}</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -54,19 +56,19 @@
                         <div class="col">
                             <div class="form-group">
                                 {{ Form::label('vland_id', 'VLAN ID') }}
-                                {{ Form::text('vland_id', '', ['class' => 'form-control']) }}
+                                {{ Form::text('vland_id', $product->vlan_id, ['class' => 'form-control']) }}
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group">
                                 {{ Form::label('circuit_no', 'Circuit Number') }}
-                                {{ Form::text('circuit_no', '', ['class' => 'form-control']) }}
+                                {{ Form::text('circuit_no', $product->circuit_no, ['class' => 'form-control']) }}
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group">
                                 {{ Form::label('no_ips', 'Number of IP(s)') }}
-                                {{ Form::text('no_ips', '', ['class' => 'form-control']) }}
+                                {{ Form::text('no_ips', $product->no_ips, ['class' => 'form-control']) }}
                             </div>
                         </div>
                     </div>
@@ -76,19 +78,19 @@
                         <div class="col">
                             <div class="form-group">
                                 {{ Form::label('total_bandwidth', 'Total Bandwidth') }}
-                                {{ Form::text('total_bandwidth', '', ['class' => 'form-control']) }}
+                                {{ Form::text('total_bandwidth',  $product->total_bandwidth, ['class' => 'form-control']) }}
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group">
                                 {{ Form::label('local_bandwidth', 'Local Bandwidth') }}
-                                {{ Form::text('local_bandwidth', '', ['class' => 'form-control']) }}
+                                {{ Form::text('local_bandwidth',  $product->local_bandwidth, ['class' => 'form-control']) }}
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group">
                                 {{ Form::label('int_bandwidth', 'Int Bandwidth') }}
-                                {{ Form::text('int_bandwidth', '', ['class' => 'form-control']) }}
+                                {{ Form::text('int_bandwidth',  $product->int_bandwidth, ['class' => 'form-control']) }}
                             </div>
                         </div>
                     </div>
@@ -97,6 +99,7 @@
                                 <div class="form-group">
                                     {{ Form::label('accessType', 'Access Type') }}
                                     <select name="accessType" class="form-control">
+                                            <option value="{{$product->accessType}}">{{$product->accessType}}</option>
                                             <option value="LAN Connect">LAN Connect</option>
                                             <option value="Managed LAN">Managed LAN</option>
                                             <option value="Metro Link">Metro Link</option>
@@ -108,7 +111,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     {{ Form::label('accessSpeed', 'Access Speed') }}
-                                    {{ Form::text('accessSpeed', '', ['class' => 'form-control']) }}
+                                    {{ Form::text('accessSpeed', $product->accessSpeed, ['class' => 'form-control']) }}
                                 </div>
                             </div>
                         </div>
@@ -120,19 +123,19 @@
                         <div class="col">
                             <div class="form-group">
                                 {{ Form::label('ei_option', 'EI Option') }}
-                                {{ Form::text('ei_option', '', ['class' => 'form-control']) }}
+                                {{ Form::text('ei_option', $product->ei_option, ['class' => 'form-control']) }}
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group">
                                 {{ Form::label('bandwidth_scheduling', 'Bandwidth Scheduling') }}
-                                {{ Form::text('bandwidth_scheduling', '', ['class' => 'form-control']) }}
+                                {{ Form::text('bandwidth_scheduling', $product->bandwidth_scheduling, ['class' => 'form-control']) }}
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group">
                                 {{ Form::label('prioritisation', 'Prioritisation') }}
-                                {{ Form::text('prioritisation', '', ['class' => 'form-control']) }}
+                                {{ Form::text('prioritisation', $product->prioritisation, ['class' => 'form-control']) }}
                             </div>
                         </div>
                     </div>
@@ -141,24 +144,25 @@
                         <div class="col">
                             <div class="form-group">
                                 {{ Form::label('product_name', 'Product Name') }}
-                                {{ Form::text('product_name', '', ['class' => 'form-control']) }}
+                                {{ Form::text('product_name', $product->product_name, ['class' => 'form-control']) }}
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group">
                                 {{ Form::label('username', 'Username') }}
-                                {{ Form::text('username', '', ['class' => 'form-control']) }}
+                                {{ Form::text('username', $product->username, ['class' => 'form-control']) }}
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group">
                                 {{ Form::label('access_username', 'Access Username') }}
-                                {{ Form::text('access_username', '', ['class' => 'form-control']) }}
+                                {{ Form::text('access_username', $product->access_username, ['class' => 'form-control']) }}
                             </div>
                         </div>
                     </div>
 
-                    {{ Form::submit('Submit', ['class'=>'btn btn-danger pull-right mb-3 pl-5 pr-5']) }}
+                    {{ Form::hidden('_method', 'PUT') }}
+                    {{ Form::submit('Update', ['class'=>'btn btn-danger pull-right mb-3 pl-5 pr-5']) }}
                     {{ Form::close() }}
     
 
