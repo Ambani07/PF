@@ -14,35 +14,28 @@ class ProductTableSeeder extends Seeder
     public function run()
     {
         $now = Carbon::now()->toDateTimeString();
-        //
-        Product::create([
-            'name' => 'EI',
-            'updated_at' => $now,
-            'created_at' => $now
-        ]);
 
         Product::create([
-            'name' => 'TI-DIS',
+            'product_id' => 1,
+            'customer_id' => 1,
+            'term' => 4,
+            'vland_id' => '6421646213451',
+            'circuit_no' => '2338121245',
+            'no_ips' => '20',
+            'total_bandwidth' => '50',
+            'local_bandwidth' => '30',
+            'int_bandwidth' => '20',
+            'accessType' => 'Metro LAN',
+            'accessSpeed' => '20',
+            'ei_option' => '',
+            'bandwidth_scheduling' => '',
+            'prioritisation' => '',
+            'product_name' => 'EI',
+            'username' => 'Thabo',
+            'access_username' => 'thabo123',
             'updated_at' => $now,
             'created_at' => $now
         ]);
-
-        Product::create([
-            'name' => 'BCX DI',
-            'updated_at' => $now,
-            'created_at' => $now
-        ]);
-
-        Product::create([
-            'name' => 'FTTB',
-            'updated_at' => $now,
-            'created_at' => $now
-        ]);
-
-        Product::create([
-            'name' => 'FTTH',
-            'updated_at' => $now,
-            'created_at' => $now
-        ]);
+        
     }
 }

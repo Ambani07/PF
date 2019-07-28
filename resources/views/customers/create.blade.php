@@ -105,15 +105,6 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                            {{ Form::label('term', 'Term') }}
-                            {{ Form::select('term', array(  '1' => '1',
-                                                            '2' => '2', 
-                                                            '3' => '3',
-                                                            '4' => '4',
-                                                            '5' => '5'),
-                                                                ['class' => 'form-control']) }}
-                    </div>
                     {{ Form::submit('Next', ['class'=>'btn btn-danger pull-right mb-3 pl-5 pr-5']) }}
                     {{ Form::close() }}
                 </div>

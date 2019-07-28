@@ -18,3 +18,4 @@ Auth::routes();
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
 Route::resource('customers', 'CustomersController');
+Route::resource('product', 'ProductController');

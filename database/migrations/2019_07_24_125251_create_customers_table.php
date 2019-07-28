@@ -27,7 +27,6 @@ class CreateCustomersTable extends Migration
             $table->string('contactPersonPhone');
             $table->string('contactPersonCell');
             $table->string('contactPersonEmail');
-            $table->integer('term');
             $table->boolean('status')->default(false);
             $table->timestamps();
         });

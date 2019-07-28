@@ -29,7 +29,6 @@ class CustomersTableSeeder extends Seeder
                 'contactPersonPhone' => '+27 72 427 2236',
                 'contactPersonCell' => '+27 11 222 4785',
                 'contactPersonEmail' => 'john@gmail.com',
-                'term' => 2
             ]);
 
         
