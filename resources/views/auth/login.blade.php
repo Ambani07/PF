@@ -3,15 +3,19 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+
+                <div class="col-lg-10 col-xl-9 mx-auto my-5">
+                        
+                          
+            <div class="card ">
+                {{-- <div class="card-header">{{ __('Login') }}</div> --}}
+                <h5 class="card-title text-center mt-5">Login</h5>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
-                        <div class="form-group row">
+                        <div class="form-group row ">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
@@ -67,7 +71,11 @@
                     </form>
                 </div>
             </div>
-        </div>
+        
+    
+</div>
+
+        {{-- </div> --}}
     </div>
 </div>
 @endsection

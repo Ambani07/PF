@@ -17,36 +17,8 @@
 
 <body id="page-top app">
     
-    @if (Auth::check())
-        @include('inc.navbar')
-    @endif
-    <div id="wrapper">
-        @if (Auth::check())
-            @include('inc.sidebar')
-        @endif
-        
-
-        <div class="container-fluid">
-            <div id="content-wrapper">
-                @include('inc.messages')
-                @yield('content')
-            </div>
-            
-            
-        </div>
-        @if (Auth::check())
-            @include('inc.footer')
-        @endif
-       
-    </div>
-        
-        
-
-    <a class="scroll-to-top rounded" href="#page-top">
-      <i class="fas fa-angle-up"></i>
-    </a>
-
-
+    @yield('content')
+    
     {{-- <script src="{{ asset('js/jquery-3.3.1.js') }}" defer></script> --}}
     <script src="{{ asset('js/bootstrap.js') }}" defer></script>
    @yield('extra-js')

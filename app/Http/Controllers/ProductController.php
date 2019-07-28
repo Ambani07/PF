@@ -11,6 +11,15 @@ use Session;
 class ProductController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -79,6 +88,7 @@ class ProductController extends Controller
         // create customer
         $newCustomer = new Customer;
         $newCustomer->firstname = $customer['firstname'];
+        $newCustomer->user_id = auth()->user()->id;
         $newCustomer->lastname = $customer['lastname'];
         $newCustomer->email = $customer['email'];
         $newCustomer->company = $customer['company'];
@@ -97,7 +107,7 @@ class ProductController extends Controller
             $customerProduct->category_id = $request->input('category_id');
             $customerProduct->customer_id = $newCustomer->id;
             $customerProduct->term = $request->input('term');
-            $customerProduct->vland_id = $request->input('vland_id');
+            $customerProduct->vlan_id = $request->input('vland_id');
             $customerProduct->circuit_no = $request->input('circuit_no');
             $customerProduct->no_ips = $request->input('no_ips');
             $customerProduct->total_bandwidth = $request->input('total_bandwidth');
@@ -114,7 +124,7 @@ class ProductController extends Controller
 
 
             if($customerProduct->save()){
-                return redirect('customers')->success('success', 'Customer created!');
+                return redirect('customers')->with('success', 'Customer created!');
             }else{
                 return redirect('customers.product');
             }
