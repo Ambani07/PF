@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Customer;
 
-class HomeController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Create a new controller instance.

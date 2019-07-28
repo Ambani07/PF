@@ -27,6 +27,9 @@
       <li class="nav-item dropdown no-arrow">
         
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            @if (Auth::check())
+              {{Auth::user()->name}}
+            @endif
             <i class="fa fa-user-circle fa-fw ml-2"></i>
             <i class="fa fa-caret-down pull-right pt-1 ml-3"></i>
         </a>
@@ -34,7 +37,10 @@
           <a class="dropdown-item" href="#">Settings</a>
           <a class="dropdown-item" href="#">My Account</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" data-toggle="modal" data-target="#logoutModal">Logout</a>
+          @if (Auth::check())
+            <a class="dropdown-item" data-toggle="modal" data-target="#logoutModal">Logout</a>
+          @endif
+          
         </div>
       </li>
     </ul>
@@ -53,7 +59,12 @@
         </div>
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
-            <button class="btn btn-success" (click)="logout()"  type="button" data-dismiss="modal">Yes</button>
+            
+            {{-- <a class="btn btn-success" href="/logout"  type="button" data-dismiss="modal">Yes</a> --}}
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button class="btn btn-success" type="submit">Logout</button>
+              </form>
             <button class="btn btn-secondary"  type="button" data-dismiss="modal">No</button>
         </div>
       </div>
