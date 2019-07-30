@@ -11,12 +11,12 @@
 |
 */
 
-// Route::resource('', 'AdminController');
-
 Auth::routes();
 
 Route::get('', 'AdminController@index');
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
-
+Route::get('services/site', 'ServicesController@site')->name('customers.site');
+Route::get('services/network', 'ServicesController@network')->name('customers.network');
 Route::resource('customers', 'CustomersController');
+Route::resource('services', 'ServicesController');
 Route::resource('product', 'ProductController');

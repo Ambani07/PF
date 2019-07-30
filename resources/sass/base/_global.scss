@@ -27,9 +27,23 @@ html {
       margin-bottom: 50px;
     }
   }
+
+  .data{
+    display: block;
+  }
+
+  .logout{
+    cursor: pointer;
+  }
   
   form{
     padding: 10px;
+  }
+
+  .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    background-color: #343A40 !important;
+    color: #F3F3F4 !important;
+    border-radius: 0px;
   }
 
   // Scroll to top button

@@ -27,13 +27,14 @@ class CustomersController extends Controller
      */
     public function index()
     {
+        $products = Category::all();
 
         // $customers = Customer::orderBy('created_at', 'desc')->get();
         $customers = Customer::orderBy('created_at', 'desc')->paginate(2);
         // $customers = Customer::all();
 
 
-        return view('customers.index')->with('customers', $customers);
+        return view('customers.index')->with(['customers' => $customers, 'products' => $products]);
     }
 
     /**
@@ -43,8 +44,9 @@ class CustomersController extends Controller
      */
     public function create()
     {
-        //
-        return view('customers.create');
+        $products = Category::all();
+
+        return view('customers.create')->with('products', $products);
     }
 
     /**
@@ -56,23 +58,30 @@ class CustomersController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'firstname' => 'required|min:2',
-            'lastname' => 'required',
-            'email' => 'required',
-            'company' => 'nullable',
-            'street' => 'required',
-            'suburb' => 'required',
-            'city' => 'required',
-            'region' => 'required',
+            'name' => 'required',
             'contactPerson' => 'required',
             'contactPersonPhone' => 'required',
             'contactPersonCell' => 'required',
-            'contactPersonEmail' => 'required'
+            'contactPersonEmail' => 'required',
+            'typeOfService' => 'required',
+            'sla' => 'required',
+            'coverPeriod' => 'required',
+            'serviceClass' => 'required'
         ]);
 
-        Session::put('customer', $request->all());
+        $customer = new Customer;
+        $customer->name = $request->input('name');
+        $customer->contactPerson = $request->input('contactPerson');
+        $customer->contactPersonPhone = $request->input('contactPersonPhone');
+        $customer->contactPersonCell = $request->input('contactPersonCell');
+        $customer->contactPersonEmail = $request->input('contactPersonEmail');
 
-        return redirect('/product/create');
+
+
+        Session::put('customer', $request->all());
+        // dd($customer);
+
+        return redirect('services/create');
     }
 
     /**
@@ -85,11 +94,11 @@ class CustomersController extends Controller
     {
         $customer = Customer::find($id);
 
-        $product = Product::find(1);
+        $product = Product::where('customer_id', $customer->id)->first();
 
-        // dd($customer->user->name);
+        $products = Category::all();
 
-        return view('customers.show')->with(['customer' => $customer, 'product' => $product]);
+        return view('customers.show')->with(['customer' => $customer, 'product' => $product, 'products' => $products]);
     }
 
     /**
@@ -102,8 +111,6 @@ class CustomersController extends Controller
     {
         //
         $customer = Customer::find($id);
-
-        
 
         return view('customers.edit')->with('customer', $customer);
     }
