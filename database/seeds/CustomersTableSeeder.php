@@ -18,14 +18,7 @@ class CustomersTableSeeder extends Seeder
 
             Customer::create([
                 'user_id' => 1,
-                'firstname' => 'Ambani',
-                'lastname' => 'Matsedu',
-                'email' => 'ambani@example.com',
-                'company' => 'BCX',
-                'street' => '1021 Lenchen Ave N',
-                'suburb' => 'Centurion Central',
-                'city' => 'Pretoria',
-                'region' => 'Centurion',
+                'name' => 'Telkom',
                 'contactPerson' => 'John',
                 'contactPersonPhone' => '+27 72 427 2236',
                 'contactPersonCell' => '+27 11 222 4785',

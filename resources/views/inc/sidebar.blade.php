@@ -22,19 +22,17 @@
             <div class="dropdown-menu" aria-labelledby="pagesDropdown" >
             <a class="dropdown-item" href="/customers">All Customers</a>
 
+            @if (count($products) > 0)
+                @foreach ($products as $product)
+                    <div>
+                        <a class="dropdown-item" href="/product/{{$product->id}}" >{{$product->name}}</a>
+                    </div>
+                @endforeach
+            @endif
+
             
             
-            <div>
-                <a class="dropdown-item" href="/customers" >EI</a>
-            </div>
             
-            
-            <a class="dropdown-item" href="/customers">BCX DI</a>
-            <a class="dropdown-item" href="/customers">TI-DIS</a>
-            <div class="dropdown-divider" href="/customers"></div>
-            <h6 class="dropdown-header" href="/customers">Broadband</h6>
-            <a class="dropdown-item"  href="/customers">FTTB</a>
-            <a class="dropdown-item"  href="/customers">FTTH</a>
             </div>
         </li>
 

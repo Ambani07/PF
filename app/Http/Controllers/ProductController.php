@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Category;
 use App\Customer;
 use App\Product;
+use App\CustomerProduct;
 use Session;
 
 class ProductController extends Controller
@@ -122,9 +124,20 @@ class ProductController extends Controller
             $customerProduct->username = $request->input('username');
             $customerProduct->access_username = $request->input('access_username');
 
-
             if($customerProduct->save()){
-                return redirect('customers')->with('success', 'Customer created!');
+
+                $customerProductId = new CustomerProduct;
+                $customerProductId->customer_id = $newCustomer->id;
+                $customerProductId->product_id = $customerProduct->id;
+                $customerProductId->category_id = (int)$customerProduct->category_id;
+                $customerProductId->user_id = auth()->user()->id;
+
+                if($customerProductId->save()){
+                    return redirect('customers')->with('success', 'Customer created!');
+                }
+                
+                return redirect('customers.create');
+                
             }else{
                 return redirect('customers.product');
             }
@@ -143,7 +156,21 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        
+        $customer_ids = array();
+        $products_category_id = DB::table('products')->where('category_id', $id)->pluck('customer_id');
+        $category = Category::find($id);
+        $categories = Category::all();
+
+        foreach($products_category_id as $product){
+            array_push($customer_ids, $product);
+            
+         }
+
+        $customers = Customer::whereIn('id', $customer_ids)->get();
+
+        return view('products.show')->with(['customers'=> $customers,
+                                            'products' => $categories,
+                                            'category' => $category]);
     }
 
     /**

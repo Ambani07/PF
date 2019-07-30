@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Customer;
+use App\Category;
 
 class DashboardController extends Controller
 {
@@ -25,13 +26,13 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Category::all();
         
         $customers = Customer::orderBy('created_at')->get();
 
         $user_id = auth()->user('id');
         // $user = User::find($user_id);
-        // dd($user_id);
+        // dd($products);
 
         // dd([$customers, $products->customer()]);
         
