@@ -16,20 +16,18 @@
         <div class="col-md-10 col-md-offset-1 text-muted bg-white m-auto p-5">
             <nav>
                 <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                    <a class="nav-item nav-link active text-dark" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Customer Details</a>
-                    <a class="nav-item nav-link text-dark" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Product Details</a>
-                    <a class="nav-item nav-link text-dark" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">More</a>
+                    <a class="nav-item nav-link active text-dark" id="nav-customer-tab" data-toggle="tab" href="#nav-customer" role="tab" aria-controls="nav-customer" aria-selected="true">Customer Details</a>
+                    <a class="nav-item nav-link active text-dark" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Site Details</a>
+                    <a class="nav-item nav-link text-dark" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Service Details</a>
+                    <a class="nav-item nav-link text-dark" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Network Details</a>
                 </div>
             </nav>
             <div class="tab-content mt-4" id="nav-tabContent ">
 
                 @if ($customer)
-                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="tab-pane fade show active" id="nav-customer" role="tabpanel" aria-labelledby="nav-customer-tab">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><strong>Firstname</strong><span class="data">{{$customer->firstname}}</span></li>
-                            <li class="list-group-item"><strong>Lastname</strong><span class="data">{{$customer->lastname}}</span></li>
-                            <li class="list-group-item"><strong>Email</strong><span class="data">{{$customer->email}}</span></li>
-                            <li class="list-group-item"><strong>Company</strong><span class="data">{{$customer->company}}</span></li>
+                            <li class="list-group-item"><strong>Name</strong><span class="data">{{$customer->name}}</span></li>
                             <li class="list-group-item"><strong>Contact Person</strong><span class="data">{{$customer->contactPerson}}</span></li>
                             <li class="list-group-item"><strong>Contact Email</strong><span class="data">{{$customer->contactPersonEmail}}</span></li>
                             <li class="list-group-item"><strong>Contact Person Phone No</strong><span class="data">{{$customer->contactPersonPhone}}</span></li>

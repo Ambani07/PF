@@ -22,4 +22,9 @@ class Customer extends Model
     public function products(){
         return $this->morphMany('App\CustomerProduct', 'customerProducts');
     }
+
+    public function sites()
+    {
+        return $this->hasMany('App\Site');
+    }
 }

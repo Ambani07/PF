@@ -13,16 +13,16 @@
         
     </ol>
     <h2 class="mb-5">Customers</h2>
-    @if(count($customers) > 0)
+    @if($sites)
         
         <table class="table">
             <thead class="thead-dark">
                 <tr>
                 <th scope="col"># ID</th>
-                <th scope="col">Fristname</th>
-                <th scope="col">Lastname</th>
-                <th scope="col">Email</th>
-                <th scope="col">Company</th>
+                <th scope="col">Name</th>
+                <th scope="col">Site</th>
+                <th scope="col">Term</th>
+                <th scope="col">Status</th>
                 <th scope="col">Date Created</th>
                 <th></th>
                 <th></th>
@@ -30,10 +30,10 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($customers as $customer)
+                @foreach($sites as $site)
                     <tr>
                         <th scope="row">{{$customer->id}}</th>
-                        <td>{{$customer->firstname}}</td>
+                        <td>{{$sites->customer->name}}</td>
                         <td>{{$customer->lastname}}</td>
                         <td>{{$customer->email}}</td>
                         <td>{{$customer->company}}</td>

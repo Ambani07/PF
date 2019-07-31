@@ -69,12 +69,14 @@ class CustomersController extends Controller
         //     'serviceClass' => 'required'
         // ]);
 
-        $customer = new Customer;
-        $customer->name = $request->input('name');
-        $customer->contactPerson = $request->input('contactPerson');
-        $customer->contactPersonPhone = $request->input('contactPersonPhone');
-        $customer->contactPersonCell = $request->input('contactPersonCell');
-        $customer->contactPersonEmail = $request->input('contactPersonEmail');
+        // dd($request->all());
+
+        // $customer = new Customer;
+        // $customer->name = $request->input('name');
+        // $customer->contactPerson = $request->input('contactPerson');
+        // $customer->contactPersonPhone = $request->input('contactPersonPhone');
+        // $customer->contactPersonCell = $request->input('contactPersonCell');
+        // $customer->contactPersonEmail = $request->input('contactPersonEmail');
 
 
 

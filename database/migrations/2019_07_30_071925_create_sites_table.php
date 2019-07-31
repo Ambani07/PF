@@ -17,7 +17,7 @@ class CreateSitesTable extends Migration
             $table->bigIncrements('id');
             $table->integer('customer_id');
             $table->integer('service_id');
-            $table->integer('network_id');
+            $table->integer('user_id');
             $table->string('name');
             $table->string('region_name');
             $table->string('street');

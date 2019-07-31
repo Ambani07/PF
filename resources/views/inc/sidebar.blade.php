@@ -20,19 +20,13 @@
             <span>Clients <i class="fa fa-caret-down pull-right"></i></span>
             </a>
             <div class="dropdown-menu" aria-labelledby="pagesDropdown" >
-            <a class="dropdown-item" href="/customers">All Customers</a>
-
-            @if (count($products) > 0)
-                @foreach ($products as $product)
-                    <div>
-                        <a class="dropdown-item" href="/product/{{$product->id}}" >{{$product->name}}</a>
-                    </div>
-                @endforeach
-            @endif
-
+                <a class="dropdown-item" href="/customers">All</a>
+           
+                <a class="dropdown-item" href="/customers">BCX DI</a>
             
+                <a class="dropdown-item" href="/customers">Enterprise Internet</a>
             
-            
+                <a class="dropdown-item" href="/customers">TI-DIS</a>
             </div>
         </li>
 

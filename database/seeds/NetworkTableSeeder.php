@@ -15,8 +15,9 @@ class NetworkTableSeeder extends Seeder
         Network::create([
             'service_id' => 1,
             'site_id' => 1,
+            'user_id' => 1,
             'circuit_no' => '1235415',
-            'ntu_no' => '989565',
+            // 'ntu_no' => '989565',
             'ntu_name' => 'New SAS-E',
             'physical_interface' => 'Optical',
             'encapsulation' => 'dot1q',
