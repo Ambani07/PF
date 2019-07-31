@@ -57,17 +57,17 @@ class CustomersController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'contactPerson' => 'required',
-            'contactPersonPhone' => 'required',
-            'contactPersonCell' => 'required',
-            'contactPersonEmail' => 'required',
-            'typeOfService' => 'required',
-            'sla' => 'required',
-            'coverPeriod' => 'required',
-            'serviceClass' => 'required'
-        ]);
+        // $this->validate($request, [
+        //     'name' => 'required',
+        //     'contactPerson' => 'required',
+        //     'contactPersonPhone' => 'required',
+        //     'contactPersonCell' => 'required',
+        //     'contactPersonEmail' => 'required',
+        //     'typeOfService' => 'required',
+        //     'sla' => 'required',
+        //     'coverPeriod' => 'required',
+        //     'serviceClass' => 'required'
+        // ]);
 
         $customer = new Customer;
         $customer->name = $request->input('name');
