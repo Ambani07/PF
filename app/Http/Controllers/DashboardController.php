@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Customer;
 use App\Category;
+use App\Site;
 
 class DashboardController extends Controller
 {
@@ -26,16 +27,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $products = Category::all();
+        $sites = Site::all();
         
-        $customers = Customer::orderBy('created_at')->get();
-
-        $user_id = auth()->user('id');
-        // $user = User::find($user_id);
-        // dd($products);
-
-        // dd([$customers, $products->customer()]);
-        
-        return view('pages.index')->with(['customers' => $customers, 'products' => $products]);
+        return view('pages.index')->with('sites', $sites);
     }
 }

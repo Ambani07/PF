@@ -18,7 +18,7 @@
 
 
     <div class="row">
-        <div class="col-md-6 col-md-offset-3 mb-5 m-auto text-muted bg-white">
+        <div class="col-md-8 col-md-offset-2 mb-5 m-auto text-muted bg-white">
             <h2 class="text-center mt-5 mb-5">Customer's Site</h2>
             
             {{ Form::open(['action' => 'ServicesController@store', 'method'=> 'POST']) }}
@@ -66,6 +66,12 @@
             <hr><br><br>
             <h5 class="text-center mb-4"><strong>Site SAP Information</strong></h5>
             <div class="form-group row">
+                <label for="bandwidth" class="col-sm-4 col-form-label">Bandwidth</label>
+                <div class="col-sm-8">
+                    <input type="text" name="bandwidth" class="form-control" id="bandwidth">
+                </div>
+            </div>
+            <div class="form-group row">
                 <label for="me_node" class="col-sm-4 col-form-label">ME Node</label>
                 <div class="col-sm-8">
                     <input type="text" name="me_node" class="form-control" id="me_node">
@@ -104,9 +110,17 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="me_access_no" class="col-sm-4 col-form-label">Me Access(Fibre/NTU) Cct Number</label>
+                <label for="circuit_no" class="col-sm-4 col-form-label">Circuit Number</label>
+                <div class="col-sm-8">
+                    <input type="text" name="circuit_no" class="form-control" id="circuit_no">
+                    <small class="text-danger">If it doesn't exist</small>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="me_access_no" class="col-sm-4 col-form-label">Me Access Cct Number</label>
                 <div class="col-sm-8">
                     <input type="text" name="me_access_no" class="form-control" id="me_access_no">
+                    <small class="text-danger">(Fibre/NTU)</small>
                 </div>
             </div>
             <div class="form-group row">
@@ -142,9 +156,10 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="customer_vlan" class="col-sm-4 col-form-label">Customer VLAN <small>only for 7210 dot1q interface</small></label>
+                <label for="customer_vlan" class="col-sm-4 col-form-label">Customer VLAN </label>
                 <div class="col-sm-8">
                   <input type="text" name="customer_vlan" class="form-control" id="customer_vlan">
+                  <small class="text-danger">only for 7210 dot1q interface</small>
                 </div>
             </div>
             <div class="form-group row">
@@ -154,15 +169,17 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="ntu_ip_address" class="col-sm-4 col-form-label">Link Subnet <small>in format v.w.x.y/z</small></label>
+                <label for="link_subnet" class="col-sm-4 col-form-label">Link Subnet </label>
                 <div class="col-sm-8">
-                  <input type="text" name="ntu_ip_address" class="form-control" id="ntu_ip_address">
+                  <input type="text" name="link_subnet" class="form-control" id="link_subnet">
+                  <small class="text-danger">in format v.w.x.y/z</small>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="ntu_ip_address" class="col-sm-4 col-form-label">Management Gateway Address <small>only required for T5C</small></label>
+                <label for="gateway_address" class="col-sm-4 col-form-label">Management Gateway Address </label>
                 <div class="col-sm-8">
-                  <input type="text" name="ntu_ip_address" class="form-control" id="ntu_ip_address">
+                  <input type="text" name="gateway_address" class="form-control" id="gateway_address">
+                  <small class="text-danger">only required for T5C</small>
                 </div>
             </div>
             

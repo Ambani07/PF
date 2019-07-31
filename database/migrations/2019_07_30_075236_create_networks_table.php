@@ -17,8 +17,9 @@ class CreateNetworksTable extends Migration
             $table->bigIncrements('id');
             $table->integer('service_id');
             $table->integer('site_id');
+            $table->integer('user_id');
             $table->string('circuit_no');
-            $table->string('ntu_no');
+            // $table->string('ntu_no');
             $table->string('ntu_name');
             $table->string('physical_interface');
             $table->string('encapsulation');

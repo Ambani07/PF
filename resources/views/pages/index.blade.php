@@ -22,9 +22,9 @@
           <div class="card-body-icon">
             <i class="fa fa-fw fa-users"></i>
           </div>
-          <div class="mr-5">{{count($customers)}} Customers</div>
+          <div class="mr-5">{{count($sites)}} sites</div>
         </div>
-        <a class="card-footer text-muted clearfix small z-1" href="/customers">
+        <a class="card-footer text-muted clearfix small z-1" href="/sites">
           <span class="float-left">View Details</span>
           <span class="float-right">
             <i class="fa fa-angle-right"></i>
@@ -82,31 +82,50 @@
     </div>
   </div>
 
-  <a class="btn btn-danger" href="/customers/create"> <i class="fa fa-plus"></i> Add customers</a>
+  <a class="btn btn-dark" href="/customers/create"> <i class="fa fa-plus"></i> Add Customer</a>
 
 
   <table class="table mt-5 shadow">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">Full Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Company</th>
-      <th scope="col">Product</th>
-      <th scope="col">Status</th>
-      <th scope="col">Date</th>
+        <th scope="col"># ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Contact Person</th>
+        <th scope="col">Contact Person Email</th>
+        <th scope="col">Product</th>
+        <th scope="col">Status</th>
+        <th scope="col">Date Created</th>
+        <th></th>
+        <th></th>
+        <th></th>
     </tr>
   </thead>
   <tbody>
     
-    @if ($customers)
-        @foreach ($customers as $customer)
+    @if ($sites)
+        @foreach ($sites as $site)
           <tr>
-            <td>{{$customer->firstname . ' ' . $customer->lastname}}</td>
-            <td>{{$customer->email}}</td>
-            <td>{{$customer->company}}</td>
-            <td>N/A</td>
-            <td>{{$customer->status}}</td>
-            <td>{{$customer->created_at}}</td>
+            <td>{{$site->id}}</td>
+            <td>{{$site->name}}</td>
+            <td>{{$site->customer->contactPerson}}</td>
+            <td>{{$site->customer->contactPersonEmail}}</td>
+            <td></td>
+            <td>
+              @if ($site->customer->status == 1)
+                  Active
+              @else
+                  <span class="text-danger">Not active</span>
+              @endif
+            </td>
+            <td>{{$site->created_at}}</td>
+            <td><a href="/customers/{{$site->id}}"> <i class="fa fa-eye text-muted"></i></a></td>
+                <td><a href="/customers/{{$site->id}}/edit"><i class="fa fa-edit text-muted"></i></a></td>
+                <td>
+                    {{ Form::open(['action' => ['CustomersController@destroy', $site->id], 'method'=> 'POST' , 'class' => 'delete ml-3 ']) }}
+                    {{ Form::hidden('_method', 'DELETE') }}
+                    {{ Form::button('Delete <i class="fa fa-trash text-danger"></i>', ['type' => 'submit','class'=>'btn btn-light btn-sm mt-3 mr-2 ']) }}
+                {{ Form::close() }}
+                </td>
           </tr>
         @endforeach
     

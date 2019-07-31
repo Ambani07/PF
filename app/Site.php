@@ -16,4 +16,9 @@ class Site extends Model
     public function service(){
         return $this->hasOne('App\Service');
     }
+
+    public function customer()
+    {
+        return $this->belongsTo('App\Customer', 'customer_id');
+    }
 }

@@ -14,7 +14,6 @@ class ServiceTableSeeder extends Seeder
     {
         Service::create([
             'customer_id' => 1,
-            'site_id' => 1,
             'user_id' => 1,
             'type_of_service' => 'International IP Transit',
             'sla' => false,

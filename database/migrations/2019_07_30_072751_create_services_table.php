@@ -16,7 +16,6 @@ class CreateServicesTable extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('customer_id');
-            $table->integer('site_id');
             $table->integer('user_id');
             $table->string('type_of_service');
             $table->boolean('sla')->default(false);

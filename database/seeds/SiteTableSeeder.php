@@ -16,7 +16,7 @@ class SiteTableSeeder extends Seeder
         Site::create([
             'customer_id' => 1,
             'service_id' => 1,
-            'network_id' => 1,
+            'user_id' => 1,
             'name' => 'Telkom centurion',
             'region_name' => 'ER',
             'street' => '61 Oak Ave',
