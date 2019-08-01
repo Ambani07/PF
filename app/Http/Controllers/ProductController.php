@@ -8,6 +8,7 @@ use App\Category;
 use App\Customer;
 use App\Product;
 use App\CustomerProduct;
+use App\Site;
 use Session;
 
 class ProductController extends Controller
@@ -156,21 +157,13 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $customer_ids = array();
-        $products_category_id = DB::table('products')->where('category_id', $id)->pluck('customer_id');
+        $sites = Site::where('category_id', $id)->get();
+
         $category = Category::find($id);
-        $categories = Category::all();
 
-        foreach($products_category_id as $product){
-            array_push($customer_ids, $product);
-            
-         }
-
-        $customers = Customer::whereIn('id', $customer_ids)->get();
-
-        return view('products.show')->with(['customers'=> $customers,
-                                            'products' => $categories,
-                                            'category' => $category]);
+        // dd($sites[0]->customer->name);
+        
+        return view('products.show')->with(['sites' => $sites, 'category' => $category]);
     }
 
     /**

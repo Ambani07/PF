@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Customer;
+use App\Site;
 
 class AdminController extends Controller
 {
@@ -20,10 +21,10 @@ class AdminController extends Controller
     
     public function index(){
 
-        $products = Product::all();
+        $sites = Site::all();
         
         $customers = Customer::orderBy('created_at')->get();
 
-        return view('pages.index')->with(['customers' => $customers, 'products' => $products]);
+        return view('pages.index')->with(['customers' => '', 'sites' => $sites]);
     }
 }

@@ -25,6 +25,8 @@ class Customer extends Model
 
     public function sites()
     {
-        return $this->hasMany('App\Site');
+        return $this->hasOne('App\Site');
     }
+
+    
 }

@@ -16,6 +16,12 @@ class CategoryTableSeeder extends Seeder
         $now = Carbon::now()->toDateTimeString();
 
         Category::create([
+            'name' => 'BCX DI',
+            'updated_at' => $now,
+            'created_at' => $now
+        ]);
+
+        Category::create([
             'name' => 'EI',
             'updated_at' => $now,
             'created_at' => $now
@@ -23,24 +29,6 @@ class CategoryTableSeeder extends Seeder
 
         Category::create([
             'name' => 'TI-DIS',
-            'updated_at' => $now,
-            'created_at' => $now
-        ]);
-
-        Category::create([
-            'name' => 'BCX DI',
-            'updated_at' => $now,
-            'created_at' => $now
-        ]);
-
-        Category::create([
-            'name' => 'FTTB',
-            'updated_at' => $now,
-            'created_at' => $now
-        ]);
-
-        Category::create([
-            'name' => 'FTTH',
             'updated_at' => $now,
             'created_at' => $now
         ]);

@@ -7,6 +7,7 @@ use App\Customer;
 use App\Product;
 use App\Category;
 use App\User;
+use App\Site;
 use Session;
 
 class CustomersController extends Controller
@@ -96,11 +97,11 @@ class CustomersController extends Controller
     {
         $customer = Customer::find($id);
 
-        $product = Product::where('customer_id', $customer->id)->first();
+        $site = Site::where('customer_id', $customer->id)->first();
 
-        $products = Category::all();
+        // $products = Category::all();
 
-        return view('customers.show')->with(['customer' => $customer, 'product' => $product, 'products' => $products]);
+        return view('customers.show')->with(['customer' => $customer, 'site' => $site]);
     }
 
     /**
