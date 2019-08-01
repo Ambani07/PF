@@ -45,38 +45,6 @@ class ServicesController extends Controller
         return view('services.create')->with('products', $products);
     }
 
-    public function site(){
-        $products = Category::select('id', 'name')->get();
-
-        if(Session::has('customer')){
-            $customer = Session::get('customer');
-        }
-        $customer = Session::get('customer');
-
-        // Session::forget('customer');
-        // dd($customer);
-        
-        
-
-        return view('services.create')->with('products', $products);
-    }
-
-    public function network(){
-        $products = Category::select('id', 'name')->get();
-
-        if(Session::has('customer')){
-            $customer = Session::get('customer');
-        }
-        $customer = Session::get('customer');
-
-        // Session::forget('customer');
-        dd($customer);
-        
-        
-
-        return view('services.network')->with('products', $products);
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -175,6 +143,11 @@ class ServicesController extends Controller
     public function edit($id)
     {
         //
+        $service = Service::find($id);
+
+        // dd($service);
+
+        return view('services.edit')->with('service', $service);
     }
 
     /**
@@ -187,6 +160,23 @@ class ServicesController extends Controller
     public function update(Request $request, $id)
     {
         //
+        // $this->validate($request, [
+        //     'type_of_service' => 'required',
+        //     'sla' => 'required',
+        //     'cover_period' => 'required',
+        //     'service_class' => 'nullable'
+        // ]);
+        
+
+        $service = Service::find($id);
+        $service->type_of_service = $request->input('type_of_service');
+        $service->sla = $request->input('sla');
+        $service->cover_period = $request->input('cover_period');
+        $service->service_class = $request->input('service_class');
+        // dd($service);
+        $service->save();
+
+        return redirect('/customers')->with('success', 'Service Updated');
     }
 
     /**

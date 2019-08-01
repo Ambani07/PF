@@ -28,14 +28,11 @@ class CustomersController extends Controller
      */
     public function index()
     {
-        $products = Category::all();
+        $sites = Site::all();
 
-        // $customers = Customer::orderBy('created_at', 'desc')->get();
-        $customers = Customer::orderBy('created_at', 'desc')->paginate(2);
-        // $customers = Customer::all();
+        
 
-
-        return view('customers.index')->with(['customers' => $customers, 'products' => $products]);
+        return view('customers.index')->with('sites', $sites);
     }
 
     /**
@@ -129,33 +126,20 @@ class CustomersController extends Controller
     {
         //
         $this->validate($request, [
-            'firstname' => 'required|min:2',
-            'lastname' => 'required',
-            'email' => 'required',
-            'company' => 'nullable',
-            'street' => 'required',
-            'suburb' => 'required',
-            'city' => 'required',
-            'region' => 'required',
+            'name' => 'required|min:2',
             'contactPerson' => 'required',
-            'contactPersonPhone' => 'required',
-            'contactPersonCell' => 'required',
-            'contactPersonEmail' => 'required'
+            'contactPersonEmail' => 'required|email',
+            'contactPersonPhone' => 'nullable',
+            'contactPersonCell' => 'required'
         ]);
 
         $customer = Customer::find($id);
-        $customer->firstname = $request->input('firstname');
-        $customer->lastname = $request->input('lastname');
-        $customer->email = $request->input('email');
-        $customer->company = $request->input('company');
-        $customer->street = $request->input('street');
-        $customer->suburb = $request->input('suburb');
-        $customer->city = $request->input('city');
-        $customer->region = $request->input('region');
+        $customer->name = $request->input('name');
         $customer->contactPerson = $request->input('contactPerson');
         $customer->contactPersonPhone = $request->input('contactPersonPhone');
         $customer->contactPersonCell = $request->input('contactPersonCell');
         $customer->contactPersonEmail = $request->input('contactPersonEmail');
+
         $customer->save();
 
         return redirect('/customers')->with('success', 'Customer Updated');

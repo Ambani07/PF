@@ -54,6 +54,11 @@
                         <li class="list-group-item"><strong>City</strong><span class="data">{{$site->city}}</span></li>
                         <li class="list-group-item"><strong>Region</strong><span class="data">{{$site->region_name}}</span></li>
                     </ul>
+                    <a class="btn btn-light btn-sm mt-3 mr-2 pull-left" href="/site/{{$site->id}}/edit">Edit <i class="fa fa-edit text-muted"></i></a>
+                    {{ Form::open(['action' => ['SitesController@destroy', $site->id], 'method'=> 'POST' , 'class' => 'delete ml-3 ']) }}
+                        {{ Form::hidden('_method', 'DELETE') }}
+                        {{ Form::button('Delete <i class="fa fa-trash text-danger"></i>', ['type' => 'submit','class'=>'btn btn-light btn-sm mt-3 mr-2 ']) }}
+                    {{ Form::close() }}
                 </div>
 
                 <div class="tab-pane fade" id="nav-service" role="tabpanel" aria-labelledby="nav-service-tab">
@@ -69,8 +74,13 @@
                             </span>
                         </li>
                         <li class="list-group-item"><strong>Cover Period</strong><span class="data">{{$site->service->cover_period}}</span></li>
-                        <li class="list-group-item"><strong>Service Class</strong><span class="data">{{$site->service->service_class}}</span></li>
+                        <li class="list-group-item"><strong>Service Class </strong><span class="data">{{$site->service->service_class}}</span></li>
                     </ul>
+                    <a class="btn btn-light btn-sm mt-3 mr-2 pull-left" href="/services/{{$site->service->id}}/edit">Edit <i class="fa fa-edit text-muted"></i></a>
+                    {{ Form::open(['action' => ['ServicesController@destroy', $site->service->id], 'method'=> 'POST' , 'class' => 'delete ml-3 ']) }}
+                        {{ Form::hidden('_method', 'DELETE') }}
+                        {{ Form::button('Delete <i class="fa fa-trash text-danger"></i>', ['type' => 'submit','class'=>'btn btn-light btn-sm mt-3 mr-2 ']) }}
+                    {{ Form::close() }}
                 </div>
                 
                 <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
