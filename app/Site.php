@@ -14,11 +14,19 @@ class Site extends Model
 
 
     public function service(){
-        return $this->hasOne('App\Service');
+        return $this->belongsTo('App\Service' ,'service_id');
     }
 
     public function customer()
     {
         return $this->belongsTo('App\Customer', 'customer_id');
+    }
+
+    public function category(){
+        return $this->belongsTo('App\Category');
+    }
+
+    public function network(){
+        return $this->hasOne('App\Network');
     }
 }

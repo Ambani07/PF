@@ -109,7 +109,7 @@
             <td>{{$site->name}}</td>
             <td>{{$site->customer->contactPerson}}</td>
             <td>{{$site->customer->contactPersonEmail}}</td>
-            <td></td>
+            <td>{{$site->category->name}}</td>
             <td>
               @if ($site->customer->status == 1)
                   Active
@@ -123,7 +123,7 @@
                 <td>
                     {{ Form::open(['action' => ['CustomersController@destroy', $site->id], 'method'=> 'POST' , 'class' => 'delete ml-3 ']) }}
                     {{ Form::hidden('_method', 'DELETE') }}
-                    {{ Form::button('Delete <i class="fa fa-trash text-danger"></i>', ['type' => 'submit','class'=>'btn btn-light btn-sm mt-3 mr-2 ']) }}
+                    {{ Form::button('<i class="fa fa-trash text-danger"></i>', ['type' => 'submit','class'=>'btn btn-light btn-sm']) }}
                 {{ Form::close() }}
                 </td>
           </tr>

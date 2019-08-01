@@ -12,4 +12,9 @@ class Category extends Model
     public function categories(){
         return $this->belongsTo('App\Product');
     }
+
+    public function sites()
+    {
+        return $this->hasMany('App\Site');
+    }
 }
