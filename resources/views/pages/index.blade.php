@@ -24,7 +24,7 @@
           </div>
           <div class="mr-5">{{count($sites)}} sites</div>
         </div>
-        <a class="card-footer text-muted clearfix small z-1" href="/sites">
+        <a class="card-footer text-muted clearfix small z-1" href="/customers">
           <span class="float-left">View Details</span>
           <span class="float-right">
             <i class="fa fa-angle-right"></i>

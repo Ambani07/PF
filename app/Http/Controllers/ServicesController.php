@@ -30,19 +30,11 @@ class ServicesController extends Controller
     public function create()
     {
         //
-        $products = Category::select('id', 'name')->get();
+        $categories = Category::select('id', 'name')->get();
 
-        // if(Session::has('customer')){
-        //     $customer = Session::get('customer');
-        // }
-        $customer = Session::get('customer');
-
-        // Session::forget('customer');
-        // dd($customer);
-        
-        
-
-        return view('services.create')->with('products', $products);
+        // $customer = Session::get('customer');
+ 
+        return view('services.create')->with('categories', $categories);
     }
 
     /**
@@ -82,6 +74,7 @@ class ServicesController extends Controller
             if($newService->save()){
                 $newSite = new Site;
                 $newSite->user_id = auth()->user()->id;
+                $newSite->category_id = $request->input('category_id');
                 $newSite->name = $request->input('name');
                 $newSite->street = $request->input('street');
                 $newSite->suburb = $request->input('suburb');
@@ -98,6 +91,7 @@ class ServicesController extends Controller
                     $newNetwork->user_id = auth()->user()->id;
                     //other fields
                     $newNetwork->circuit_no = $request->input('circuit_no');
+                    $newNetwork->ntu = $request->input('ntu');
                     $newNetwork->ntu_name = $request->input('ntu_name');
                     $newNetwork->physical_interface = $request->input('physical_interface');
                     $newNetwork->encapsulation = $request->input('encapsulation');
@@ -109,9 +103,12 @@ class ServicesController extends Controller
                     $newNetwork->bandwidth = $request->input('bandwidth');
                     $newNetwork->me_access_type = $request->input('me_access_type');
                     $newNetwork->me_node = $request->input('me_node');
+                    $newNetwork->me_access_no = $request->input('me_access_no');
                     $newNetwork->me_port = $request->input('me_port');
                     
                     if($newNetwork->save()){
+
+                        // dd($newNetwork);
                         return redirect('/dashboard')->with('success', 'Customer created successfully!...');
                     }
                 }

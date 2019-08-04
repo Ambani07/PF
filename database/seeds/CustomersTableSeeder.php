@@ -22,7 +22,16 @@ class CustomersTableSeeder extends Seeder
                 'contactPerson' => 'John',
                 'contactPersonPhone' => '+27 72 427 2236',
                 'contactPersonCell' => '+27 11 222 4785',
-                'contactPersonEmail' => 'john@gmail.com',
+                'contactPersonEmail' => 'john@telkom.co.za',
+            ]);
+
+            Customer::create([
+                'user_id' => 1,
+                'name' => 'Absa',
+                'contactPerson' => 'Themba',
+                'contactPersonPhone' => '+27 65 857 2787',
+                'contactPersonCell' => '+27 11 222 4785',
+                'contactPersonEmail' => 'Themba@absa.co.za',
             ]);
 
         

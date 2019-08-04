@@ -22,14 +22,24 @@
             <h2 class="text-center mt-5 mb-5">Customer's Site</h2>
             
             {{ Form::open(['action' => 'ServicesController@store', 'method'=> 'POST']) }}
-            <h5 class="text-center mb-4"><strong>Address</strong></h5>
+            <h5 class="text-center mb-4"><strong>Site Info</strong></h5>
+            <div class="form-group row">
+                <label for="category_id" class="col-sm-4 col-form-label">Product</label>
+                <div class="col-sm-8">
+                    <select name="category_id" class="form-control">
+                        @foreach ($categories as $category)
+                            <option value="{{$category->id}}">{{$category->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
             <div class="form-group row">
                 <label for="name" class="col-sm-4 col-form-label">Name</label>
                 <div class="col-sm-8">
                   <input type="text" name="name" class="form-control" id="name">
                 </div>
             </div>
-                
+            <h5 class="text-center mb-4"><strong>Address</strong></h5>
             <div class="form-group row">
                 <label for="street" class="col-sm-4 col-form-label">Street</label>
                 <div class="col-sm-8">
@@ -95,6 +105,13 @@
                     </select>
                 </div>
             </div>
+            <div class="form-group row">
+                <label for="me_access_no" class="col-sm-4 col-form-label">Me Access Cct Number</label>
+                <div class="col-sm-8">
+                    <input type="text" name="me_access_no" class="form-control" id="me_access_no">
+                    <small class="text-danger">(Fibre/NTU)</small>
+                </div>
+            </div>
             <hr><br>
             <h5 class="text-center mb-4"><strong>Network Equipment</strong></h5>
             <div class="form-group row">
@@ -116,13 +133,7 @@
                     <small class="text-danger">If it doesn't exist</small>
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="me_access_no" class="col-sm-4 col-form-label">Me Access Cct Number</label>
-                <div class="col-sm-8">
-                    <input type="text" name="me_access_no" class="form-control" id="me_access_no">
-                    <small class="text-danger">(Fibre/NTU)</small>
-                </div>
-            </div>
+            
             <div class="form-group row">
                 <label for="physical_interface" class="col-sm-4 col-form-label">Physical Interface</label>
                 <div class="col-sm-8">

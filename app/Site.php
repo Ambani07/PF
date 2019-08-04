@@ -29,4 +29,8 @@ class Site extends Model
     public function network(){
         return $this->hasOne('App\Network');
     }
+
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
 }
