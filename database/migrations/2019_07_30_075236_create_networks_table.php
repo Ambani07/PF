@@ -19,7 +19,7 @@ class CreateNetworksTable extends Migration
             $table->integer('site_id');
             $table->integer('user_id');
             $table->string('circuit_no');
-            // $table->string('ntu_no');
+            $table->string('ntu');
             $table->string('ntu_name');
             $table->string('physical_interface');
             $table->string('encapsulation');
@@ -32,6 +32,7 @@ class CreateNetworksTable extends Migration
             $table->string('ti_dis_int_bandwidth')->nullable();
             $table->string('me_access_type');
             $table->string('me_node');
+            $table->string('me_access_no');
             $table->integer('me_port');
             $table->timestamps();
         });

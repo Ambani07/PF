@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Site;
+use App\Exports\SitesExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SitesController extends Controller
 {
@@ -93,6 +95,12 @@ class SitesController extends Controller
         $site->save();
 
         return redirect('/customers')->with('success', 'Site Updated');
+    }
+
+    public function export($id) 
+    {
+        
+        return Excel::download(new SitesExport($id), 'sites.xlsx');
     }
 
     /**

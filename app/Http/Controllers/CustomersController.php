@@ -92,9 +92,11 @@ class CustomersController extends Controller
      */
     public function show($id)
     {
-        $customer = Customer::find($id);
+        $site = Site::find($id);
+        // dd($site);
+        $customer = Customer::find($site->customer_id)->first();
 
-        $site = Site::where('customer_id', $customer->id)->first();
+        
 
         // $products = Category::all();
 

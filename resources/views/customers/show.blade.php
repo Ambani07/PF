@@ -13,7 +13,9 @@
     </ol>
 
 <div class="row">
+        
         <div class="col-md-10 col-md-offset-1 text-muted bg-white m-auto p-5">
+            
             <nav>
                 <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                     <a class="nav-item nav-link active text-dark" id="nav-customer-tab" data-toggle="tab" href="#nav-customer" role="tab" aria-controls="nav-customer" aria-selected="true">Customer Details</a>
@@ -22,6 +24,7 @@
                     <a class="nav-item nav-link text-dark" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Network Details</a>
                 </div>
             </nav>
+            <a class="btn btn-success mt-3 mr-2 " href="/sites/export/{{$site->id}}">Excel <i class="fa fa-download"></i></a>
             <div class="tab-content mt-4" id="nav-tabContent ">
 
                 @if ($customer)
@@ -48,6 +51,7 @@
             
                 <div class="tab-pane fade" id="nav-site" role="tabpanel" aria-labelledby="nav-site-tab">
                     <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Product</strong><span class="data">{{$site->category->name}}</span></li>
                         <li class="list-group-item"><strong>Site Name</strong><span class="data">{{$site->name}}</span></li>
                         <li class="list-group-item"><strong>Street</strong><span class="data">{{$site->street}}</span></li>
                         <li class="list-group-item"><strong>Suburb</strong><span class="data">{{$site->suburb}}</span></li>
@@ -96,6 +100,7 @@
                         <li class="list-group-item"><strong>Gateway Address</strong><span class="data">{{$site->network->gateway_address}}</span></li>
                         <li class="list-group-item"><strong>Bandwidth</strong><span class="data">{{$site->network->bandwidth}}</span></li>
                         <li class="list-group-item"><strong>ME Access Type</strong><span class="data">{{$site->network->me_access_type}}</span></li>
+                        <li class="list-group-item"><strong>ME Access Cct Number</strong><span class="data">{{$site->network->me_access_no}}</span></li>
                         <li class="list-group-item"><strong>ME Node</strong><span class="data">{{$site->network->me_node}}</span></li>
                         <li class="list-group-item"><strong>ME Port</strong><span class="data">{{$site->network->me_port}}</span></li>
                     </ul>

@@ -58,10 +58,10 @@
                             <div class="col-sm-8">
                                 <select name="typeOfService" class="form-control">
                                     <option></option>
-                                    <option value="Direct Fibre">Direct Fibre</option>
-                                    <option value="Microwave">Microwave</option>
-                                    <option value="Standard">Standard</option>
-                                    <option value="NO EDD">NO EDD</option>
+                                    <option value="Gold Burstable">Gold Burstable</option>
+                                    <option value="National/International 75/25">National/International 75/25</option>
+                                    <option value="International IP Transit">International IP Transit</option>
+                                    <option value="National/International Variable Capped">National/International Variable Capped</option>
                                 </select>
                             </div>
                         </div>
@@ -91,9 +91,11 @@
                             <div class="col-sm-8">
                                 <select name="serviceClass" class="form-control">
                                     <option value="None">None</option>
-                                    <option value="Gold">Gold</option>
-                                    <option value="Silver">Silver</option>
-                                    <option value="Bronze">Bronze</option>
+                                    <option value="Gold (1:1)"> Gold(1:1)</option>
+                                    <option value="Silver (1:3)">Silver (1:3)</option>
+                                    <option value="Bronze (1:6)">Bronze (1:6)</option>
+                                    <option value="Blended (1:10)">Blended (1:10)</option>
+                                    <option value="Local Only">Local Only</option>
                                 </select>
                             </div>
                         </div>
