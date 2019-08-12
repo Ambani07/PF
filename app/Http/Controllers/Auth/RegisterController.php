@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Role;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -37,7 +38,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('auth');
     }
 
     /**
@@ -63,10 +64,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+        // dd($data);
         return User::create([
             'name' => $data['name'],
+            'surname' => $data['surname'],
+            'role_id' => $data['role_id'],
+            'tel_no' => $data['tel_no'],
+            'cell_no' => $data['cell_no'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    public function showRegistrationForm(){
+
+        $roles = Role::all();
+
+        return view('auth.register')->with('roles', $roles);
     }
 }

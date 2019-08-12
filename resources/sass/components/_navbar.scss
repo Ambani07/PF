@@ -1,3 +1,7 @@
+.navbar{
+  background-color: $color-primary;
+}
+
 .navbar-nav {
 
     .form-inline .input-group {
@@ -61,7 +65,7 @@
   
   .sidebar {
     width: $sidebar-collapsed-width !important;
-    background-color: $gray-900;
+    background-color: $color-primary;
     min-height: calc(100vh - #{$navbar-base-height});
     @include sidebar-icons;
     .nav-item {

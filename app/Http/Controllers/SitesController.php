@@ -99,8 +99,9 @@ class SitesController extends Controller
 
     public function export($id) 
     {
-        
-        return Excel::download(new SitesExport($id), 'sites.xlsx');
+        $site = Site::find($id);
+        // dd($site->name);
+        return Excel::download(new SitesExport($id), $site->name . ' Product File.xlsx');
     }
 
     /**

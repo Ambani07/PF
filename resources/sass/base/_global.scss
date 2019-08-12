@@ -10,9 +10,13 @@ html {
     font-weight: 300;
   }
   
-  body {
+  #app {
     height: 100%;
     background-color: #F3F3F4 !important;
+  }
+  #auth {
+    height: 100%;
+    background-color: $color-primary !important;
   }
   .form-control{
     border-radius: 0px;

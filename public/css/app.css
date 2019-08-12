@@ -10658,9 +10658,14 @@ h6 {
   font-weight: 300;
 }
 
-body {
+#app {
   height: 100%;
   background-color: #F3F3F4 !important;
+}
+
+#auth {
+  height: 100%;
+  background-color: #5F7C8A !important;
 }
 
 .form-control {
@@ -10744,6 +10749,10 @@ form {
   z-index: 1;
 }
 
+.navbar {
+  background-color: #5F7C8A;
+}
+
 .navbar-nav .form-inline .input-group {
   width: 100%;
 }
@@ -10791,7 +10800,7 @@ form {
 
 .sidebar {
   width: 90px !important;
-  background-color: #212529;
+  background-color: #5F7C8A;
   min-height: calc(100vh - 56px);
 }
 
@@ -10904,6 +10913,57 @@ form {
   .sidebar.toggled .nav-item.dropdown .dropdown-toggle::after {
     display: none;
   }
+}
+
+/*--------------------sidebar-header----------------------*/
+
+.sidebar-wrapper .sidebar-header {
+  padding: 20px;
+  overflow: hidden;
+}
+
+.sidebar .user-profile {
+  background-color: #8dabba !important;
+  margin: 15px;
+}
+
+.sidebar-wrapper .sidebar-header .user-pic {
+  float: left;
+  width: 60px;
+  padding: 2px;
+  border-radius: 12px;
+  margin-right: 15px;
+  overflow: hidden;
+}
+
+.sidebar-wrapper .sidebar-header .user-pic img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.sidebar-wrapper .sidebar-header .user-info {
+  float: left;
+}
+
+.sidebar-wrapper .sidebar-header .user-info > span {
+  display: block;
+}
+
+.sidebar-wrapper .sidebar-header .user-info .user-role {
+  font-size: 12px;
+}
+
+.sidebar-wrapper .sidebar-header .user-info .user-status {
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+.sidebar-wrapper .sidebar-header .user-info .user-status i {
+  font-size: 8px;
+  margin-right: 4px;
+  color: #5cb85c;
 }
 
 :root {
@@ -11049,6 +11109,10 @@ body.sidebar-toggled footer.sticky-footer {
 
 .delete {
   padding: 0 !important;
+}
+
+thead {
+  background-color: #5F7C8A;
 }
 
 .card-signin {

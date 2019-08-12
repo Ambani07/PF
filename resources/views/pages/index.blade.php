@@ -17,7 +17,7 @@
   <!-- Icon Cards-->
   <div class="row tex-muted mb-5">
     <div class="col-xl-3 col-sm-6 mb-3 ">
-      <div class="card text-muted bg-light o-hidden h-100 shadow">
+      <div class="card text-muted bg-light o-hidden h-100 ">
         <div class="card-body">
           <div class="card-body-icon">
             <i class="fa fa-fw fa-users"></i>
@@ -33,7 +33,7 @@
       </div>
     </div>
     <div class="col-xl-3 col-sm-6 mb-3">
-      <div class="card text-muted bg-light o-hidden h-100 shadow">
+      <div class="card text-muted bg-light o-hidden h-100 ">
         <div class="card-body">
           <div class="card-body-icon">
             <i class="fa fa-fw fa-random"></i>
@@ -49,7 +49,7 @@
       </div>
     </div>
     <div class="col-xl-3 col-sm-6 mb-3">
-      <div class="card text-muted bg-light o-hidden h-100 shadow">
+      <div class="card text-muted bg-light o-hidden h-100 ">
         <div class="card-body">
           <div class="card-body-icon">
             <i class="fa fa-fw fa-list"></i>
@@ -65,7 +65,7 @@
       </div>
     </div>
     <div class="col-xl-3 col-sm-6 mb-3">
-      <div class="card text-muted bg-light o-hidden h-100 shadow">
+      <div class="card text-muted bg-light o-hidden h-100 ">
         <div class="card-body">
           <div class="card-body-icon">
             <i class="fa fa-fw fa-ban"></i>
@@ -82,11 +82,8 @@
     </div>
   </div>
 
-  <a class="btn btn-dark" href="/customers/create"> <i class="fa fa-plus"></i> Add Customer</a>
-
-
-  <table class="table mt-5 shadow">
-  <thead class="thead-dark">
+  <table class="table mt-5 ">
+  <thead class="text-white">
     <tr>
         <th scope="col"># ID</th>
         <th scope="col">Name</th>
@@ -95,7 +92,6 @@
         <th scope="col">Product</th>
         <th scope="col">Status</th>
         <th scope="col">Date Created</th>
-        <th></th>
         <th></th>
         <th></th>
     </tr>
@@ -118,14 +114,9 @@
               @endif
             </td>
             <td>{{$site->created_at}}</td>
-            <td><a href="/customers/{{$site->id}}"> <i class="fa fa-eye text-muted"></i></a></td>
-                <td><a href="/customers/{{$site->id}}/edit"><i class="fa fa-edit text-muted"></i></a></td>
-                <td>
-                    {{ Form::open(['action' => ['CustomersController@destroy', $site->id], 'method'=> 'POST' , 'class' => 'delete ml-3 ']) }}
-                    {{ Form::hidden('_method', 'DELETE') }}
-                    {{ Form::button('<i class="fa fa-trash text-danger"></i>', ['type' => 'submit','class'=>'btn btn-light btn-sm']) }}
-                {{ Form::close() }}
-                </td>
+            @if (Auth::user()->role->read_only == 0)
+                <td><a href="/customers/{{$site->id}}"> <i class="fa fa-eye text-muted"></i></a></td>
+            @endif
           </tr>
         @endforeach
     

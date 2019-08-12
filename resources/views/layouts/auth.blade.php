@@ -15,7 +15,7 @@
     
 </head>
 
-<body id="page-top app">
+<body id="auth">
     
     @yield('content')
     
