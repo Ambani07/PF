@@ -8,13 +8,12 @@
             <a class="text-muted" href="/dashboard">Dashboard</a>
         </li>
         <li class="breadcrumb-item active">
-            <a class="text-muted" href="/customers">Add Customers</a>
-        </li>
-        <li class="breadcrumb-item active">
-            <a href="/customers">{{$category->name}}</a>
+            <a >{{$category->name}}</a>
         </li>
     </ol>
 
+    <h1 class="text-muted text-center">{{$category->name}}</h1>
+    @if (count($sites) > 0)
     <table class="table mt-5 shadow">
             <thead class="thead-dark">
               <tr>
@@ -26,13 +25,11 @@
                   <th scope="col">Status</th>
                   <th scope="col">Date Created</th>
                   <th></th>
-                  <th></th>
-                  <th></th>
               </tr>
             </thead>
             <tbody>
               
-              @if ($sites)
+              
                   @foreach ($sites as $site)
                     <tr>
                       <td>{{$site->id}}</td>
@@ -48,21 +45,26 @@
                         @endif
                       </td>
                       <td>{{$site->created_at}}</td>
-                      <td><a href="/customers/{{$site->id}}"> <i class="fa fa-eye text-muted"></i></a></td>
-                          <td><a href="/customers/{{$site->id}}/edit"><i class="fa fa-edit text-muted"></i></a></td>
-                          <td>
-                              {{ Form::open(['action' => ['CustomersController@destroy', $site->id], 'method'=> 'POST' , 'class' => 'delete ml-3 ']) }}
-                              {{ Form::hidden('_method', 'DELETE') }}
-                              {{ Form::button('<i class="fa fa-trash text-danger"></i>', ['type' => 'submit','class'=>'btn btn-light btn-sm']) }}
-                          {{ Form::close() }}
-                          </td>
+                      <td><a href="/customers/{{$site->id}}"> view</a></td>
+                      @if (Auth::user()->role->read_only == 0)
+                        {{-- <td>
+                            {{ Form::open(['action' => ['CustomersController@destroy', $site->id], 'method'=> 'POST' , 'class' => 'delete ml-3 ']) }}
+                            {{ Form::hidden('_method', 'DELETE') }}
+                            {{ Form::button('<i class="fa fa-trash text-danger"></i>', ['type' => 'submit','class'=>'btn btn-light btn-sm']) }}
+                        {{ Form::close() }}
+                        </td> --}}
+                      @endif    
+                      
                     </tr>
                   @endforeach
               
-                  
-              @endif
+              
             </tbody>
           </table>
+          @else
+            <h3 class="text-muted">No customers for {{$category->name}}</h3>
+            
+          @endif
     
     
 

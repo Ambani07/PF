@@ -37,15 +37,13 @@
                             <li class="list-group-item"><strong>Contact Person Cell No</strong><span class="data">{{$site->customer->contactPersonCell}}</span></li>
                         </ul>
 
-
-
-                    <a class="btn btn-light btn-sm mt-3 mr-2 pull-left" href="/customers/{{$customer->id}}/edit">Edit <i class="fa fa-edit text-muted"></i></a>
-                    {{ Form::open(['action' => ['CustomersController@destroy', $customer->id], 'method'=> 'POST' , 'class' => 'delete ml-3 ']) }}
-                        {{ Form::hidden('_method', 'DELETE') }}
-                        {{ Form::button('Delete <i class="fa fa-trash text-danger"></i>', ['type' => 'submit','class'=>'btn btn-light btn-sm mt-3 mr-2 ']) }}
-                    {{ Form::close() }}
-                    
-                        
+                        @if (Auth::user()->role->read_only == 0)
+                        <a class="btn btn-light btn-sm mt-3 mr-2 pull-left" href="/customers/{{$customer->id}}/edit">Edit <i class="fa fa-edit text-muted"></i></a>
+                        {{ Form::open(['action' => ['CustomersController@destroy', $customer->id], 'method'=> 'POST' , 'class' => 'delete ml-3 ']) }}
+                            {{ Form::hidden('_method', 'DELETE') }}
+                            {{ Form::button('Delete <i class="fa fa-trash text-danger"></i>', ['type' => 'submit','class'=>'btn btn-light btn-sm mt-3 mr-2 ']) }}
+                        {{ Form::close() }}
+                        @endif
                     </div>
                 @endif
             
@@ -58,11 +56,13 @@
                         <li class="list-group-item"><strong>City</strong><span class="data">{{$site->city}}</span></li>
                         <li class="list-group-item"><strong>Region</strong><span class="data">{{$site->region_name}}</span></li>
                     </ul>
-                    <a class="btn btn-light btn-sm mt-3 mr-2 pull-left" href="/site/{{$site->id}}/edit">Edit <i class="fa fa-edit text-muted"></i></a>
-                    {{ Form::open(['action' => ['SitesController@destroy', $site->id], 'method'=> 'POST' , 'class' => 'delete ml-3 ']) }}
-                        {{ Form::hidden('_method', 'DELETE') }}
-                        {{ Form::button('Delete <i class="fa fa-trash text-danger"></i>', ['type' => 'submit','class'=>'btn btn-light btn-sm mt-3 mr-2 ']) }}
-                    {{ Form::close() }}
+                    @if (Auth::user()->role->read_only == 0)
+                        <a class="btn btn-light btn-sm mt-3 mr-2 pull-left" href="/site/{{$site->id}}/edit">Edit <i class="fa fa-edit text-muted"></i></a>
+                        {{ Form::open(['action' => ['SitesController@destroy', $site->id], 'method'=> 'POST' , 'class' => 'delete ml-3 ']) }}
+                            {{ Form::hidden('_method', 'DELETE') }}
+                            {{ Form::button('Delete <i class="fa fa-trash text-danger"></i>', ['type' => 'submit','class'=>'btn btn-light btn-sm mt-3 mr-2 ']) }}
+                        {{ Form::close() }}
+                    @endif    
                 </div>
 
                 <div class="tab-pane fade" id="nav-service" role="tabpanel" aria-labelledby="nav-service-tab">
@@ -80,11 +80,13 @@
                         <li class="list-group-item"><strong>Cover Period</strong><span class="data">{{$site->service->cover_period}}</span></li>
                         <li class="list-group-item"><strong>Service Class </strong><span class="data">{{$site->service->service_class}}</span></li>
                     </ul>
-                    <a class="btn btn-light btn-sm mt-3 mr-2 pull-left" href="/services/{{$site->service->id}}/edit">Edit <i class="fa fa-edit text-muted"></i></a>
-                    {{ Form::open(['action' => ['ServicesController@destroy', $site->service->id], 'method'=> 'POST' , 'class' => 'delete ml-3 ']) }}
-                        {{ Form::hidden('_method', 'DELETE') }}
-                        {{ Form::button('Delete <i class="fa fa-trash text-danger"></i>', ['type' => 'submit','class'=>'btn btn-light btn-sm mt-3 mr-2 ']) }}
-                    {{ Form::close() }}
+                    @if (Auth::user()->role->read_only == 0)
+                        <a class="btn btn-light btn-sm mt-3 mr-2 pull-left" href="/services/{{$site->service->id}}/edit">Edit <i class="fa fa-edit text-muted"></i></a>
+                        {{ Form::open(['action' => ['ServicesController@destroy', $site->service->id], 'method'=> 'POST' , 'class' => 'delete ml-3 ']) }}
+                            {{ Form::hidden('_method', 'DELETE') }}
+                            {{ Form::button('Delete <i class="fa fa-trash text-danger"></i>', ['type' => 'submit','class'=>'btn btn-light btn-sm mt-3 mr-2 ']) }}
+                        {{ Form::close() }}
+                    @endif
                 </div>
                 
                 <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
@@ -104,6 +106,13 @@
                         <li class="list-group-item"><strong>ME Node</strong><span class="data">{{$site->network->me_node}}</span></li>
                         <li class="list-group-item"><strong>ME Port</strong><span class="data">{{$site->network->me_port}}</span></li>
                     </ul>
+                    @if (Auth::user()->role->read_only == 0)
+                        <a class="btn btn-light btn-sm mt-3 mr-2 pull-left" href="/services/{{$site->service->id}}/edit">Edit <i class="fa fa-edit text-muted"></i></a>
+                        {{ Form::open(['action' => ['ServicesController@destroy', $site->service->id], 'method'=> 'POST' , 'class' => 'delete ml-3 ']) }}
+                            {{ Form::hidden('_method', 'DELETE') }}
+                            {{ Form::button('Delete <i class="fa fa-trash text-danger"></i>', ['type' => 'submit','class'=>'btn btn-light btn-sm mt-3 mr-2 ']) }}
+                        {{ Form::close() }}
+                    @endif
                 </div>
             </div>
         </div>

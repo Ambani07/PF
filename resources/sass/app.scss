@@ -8,9 +8,11 @@
 @import '~bootstrap/scss/bootstrap';
 
 @import "abstract/_mixins";
+@import "abstract/_variables";
 @import "base/_global";
 @import "base/_utilities";
 @import "components/_navbar";
+@import "components/sidebar";
 @import "components/_login";
 @import "components/_footer";
 @import "components/_cards";

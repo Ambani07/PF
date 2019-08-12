@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('content')
 <div class="container">
@@ -7,9 +7,9 @@
                 <div class="col-lg-10 col-xl-9 mx-auto my-5">
                         
                           
-            <div class="card ">
+            <div class="card login" style="margin-top: 20vh !important;">
                 {{-- <div class="card-header">{{ __('Login') }}</div> --}}
-                <h5 class="card-title text-center mt-5">Login</h5>
+                <h3 class="card-title text-center mt-5">Login</h3>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">

@@ -1,27 +1,30 @@
-<nav class="navbar shadow-sm navbar-expand navbar-dark bg-dark static-top">
+<nav class="navbar shadow-sm navbar-expand text-white static-top">
     <div class="navbar-brand">
       <a href="/dashboard" >
         <img src="{{asset('images/BCX-Header2.png')}}" style="max-width: 25%;" alt="BCX logo">
       </a>
-      <button class="btn btn-link btn-sm text-white" id="sidebarToggle" href="#">
-      <i class="fa fa-bars"></i>
+      {{-- <button class="btn btn-link btn-sm text-white"  id="sidebarToggle" href="#"> --}}
+      {{-- <i class="fa fa-bars"></i> --}}
     </button>
     </div>
 
-    <ul class="navbar-nav ml-auto mr-0 mr-md-3 my-2 my-md-0">
+    <ul class="navbar-nav ml-auto mr-0 mr-md-3 my-2 my-md-0 ">
 
       
-      <li class="nav-item dropdown no-arrow">
+      <li class="nav-item dropdown no-arrow ">
         
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             @if (Auth::check())
-              {{Auth::user()->name}}
+              <small class="text-white">{{Auth::user()->role->name}}</small> <span class="text-white">{{Auth::user()->name}}</span> 
             @endif
-            <i class="fa fa-user-circle fa-fw ml-2"></i>
-            <i class="fa fa-caret-down pull-right pt-1 ml-3"></i>
+            <i class="fa fa-user-circle text-white fa-fw ml-2"></i>
+            <i class="fa fa-caret-down text-white pull-right pt-1 ml-3"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-          <a class="dropdown-item" href="#">Settings</a>
+            @if (Auth::user()->role->read_only == 0)
+              <a class="dropdown-item" href="#"><i class="fa fa-user-circle"></i> Settings</a>
+            @endif
+          
           <a class="dropdown-item" href="#">My Account</a>
           <div class="dropdown-divider"></div>
           @if (Auth::check())

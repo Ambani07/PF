@@ -94,7 +94,7 @@ class CustomersController extends Controller
     {
         $site = Site::find($id);
         // dd($site);
-        $customer = Customer::find($site->customer_id)->first();
+        $customer = Customer::find($site->customer_id);
 
         
 

@@ -12,7 +12,7 @@
         </li>
         
     </ol>
-    <h2 class="mb-5">Customers</h2>
+    <h2 class="mb-5">Recent Customers</h2>
     <table class="table mt-5 shadow">
         <thead class="thead-dark">
           <tr>

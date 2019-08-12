@@ -2,6 +2,10 @@
     padding: 0 !important;
 }
 
+thead{
+  background-color: $color-primary;
+}
+
 .card-signin {
     border: 0;
     border-radius: 1rem;
