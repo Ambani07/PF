@@ -17,15 +17,13 @@ Auth::routes();
 
 Route::get('', 'AdminController@index');
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+Route::get('/search', 'DashboardController@search')->name('search');
 
 Route::resource('customers', 'CustomersController');
 Route::resource('services', 'ServicesController');
 Route::resource('product', 'ProductController');
 Route::resource('site', 'SitesController');
 
-// Route::get('/excel_export', 'ExportExcelController@index');
-
-// Route::get('/excel_export/excel', 'ExportExcelController@excel')->name('export_excel.excel');
 
 Route::get('/download/{id}', function(){
     return Excel::download(new SitesExport, 'sites.xlsx');
@@ -33,4 +31,7 @@ Route::get('/download/{id}', function(){
 
 Route::get('sites/export/{id}', 'SitesController@export');
 
-// return Excel::download(new UsersExport, 'users.xlsx');
+Route::get('account', 'auth\UserController@index');
+Route::get('account/{id}', 'auth\UserController@edit');
+Route::put('account/{id}', 'auth\UserController@update');
+Route::post('account/{id}/avatar', 'auth\UserController@update_avatar');
