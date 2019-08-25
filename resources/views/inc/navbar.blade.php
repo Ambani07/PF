@@ -1,31 +1,32 @@
-<nav class="navbar shadow-sm navbar-expand text-white static-top">
+<nav class="navbar shadow-sm navbar-expand text-dark static-top">
     <div class="navbar-brand">
       <a href="/dashboard" >
-        <img src="{{asset('images/BCX-Header2.png')}}" style="max-width: 25%;" alt="BCX logo">
+        <img src="{{asset('images/BCX-Header.png')}}" style="max-width: 25%;" alt="BCX logo">
       </a>
-      {{-- <button class="btn btn-link btn-sm text-white"  id="sidebarToggle" href="#"> --}}
+      {{-- <button class="btn btn-link btn-sm text-dark"  id="sidebarToggle" href="#"> --}}
       {{-- <i class="fa fa-bars"></i> --}}
     </button>
+    </div>
+    <div class="d-flex justify-content-center h-100">
+
+        <form class="searchbar" action="{{route('search')}}" method="get">
+        <input class="search_input" value="{{ request()->input('search') }}" type="text" name="search" placeholder="Search...">
+        <a href="#" class="search_icon"><i class="fa fa-search"></i></a>
+        </form>
+
     </div>
 
     <ul class="navbar-nav ml-auto mr-0 mr-md-3 my-2 my-md-0 ">
 
       <li class="nav-item dropdown no-arrow ">
-        <div class="d-flex justify-content-center h-100">
-
-            <form class="searchbar" action="{{route('search')}}" method="get">
-            <input class="search_input" value="{{ request()->input('search') }}" type="text" name="search" placeholder="Search...">
-            <a href="#" class="search_icon"><i class="fa fa-search"></i></a>
-            </form>
-
-        </div>
+        
       </li>
       <li class="nav-item dropdown no-arrow ">
         
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             @if (Auth::check())
-              <span class="text-white">{{Auth::user()->name}}</span> 
-              <i class="fa fa-caret-down text-white" ></i>
+              <span class="text-dark">{{Auth::user()->name}}</span> 
+              <i class="fa fa-caret-down text-dark" ></i>
             @endif
             @if (!empty(Auth::user()->avatar))
               {{-- <img src="#" alt="{{asset('images/avatars/{{ Auth::user()->avatar}}')" > --}}

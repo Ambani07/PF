@@ -10,6 +10,11 @@
       margin: 15px;
   }
 
+  .sidebar a:hover{
+    background-color: $color-light !important;
+  } 
+
+
   .sidebar-wrapper .sidebar-header .user-pic {
     float: left;
     width: 60px;
@@ -49,13 +54,10 @@
   }
 
   .dropdown-menu{
-    background-color: $color-light !important;
+    background-color: $color-primary !important;
   }
 
-  .dropdown-menu a{
-    color: white !important;
-  }
 
   .dropdown-menu a:hover{
-    background-color: $color-dark;
+    background-color: $color-light;
   }

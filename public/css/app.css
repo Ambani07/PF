@@ -10670,7 +10670,7 @@ h6 {
 
 #auth {
   height: 100%;
-  background-color: #5F7C8A !important;
+  background-color: #eee !important;
 }
 
 .form-control {
@@ -10704,7 +10704,7 @@ form {
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
   background-color: #343A40 !important;
-  color: #F3F3F4 !important;
+  color: #343A40 !important;
   border-radius: 0px;
 }
 
@@ -10755,7 +10755,7 @@ form {
 }
 
 .navbar {
-  background-color: #5F7C8A;
+  background-color: #eee;
 }
 
 .navbar-nav .form-inline .input-group {
@@ -10763,7 +10763,7 @@ form {
 }
 
 .navbar-nav .nav-item.active {
-  background-color: #8dabba !important;
+  background-color: #d1d1d1 !important;
 }
 
 .navbar-nav .nav-item.active .nav-link {
@@ -10809,7 +10809,7 @@ form {
 
 .sidebar {
   width: 90px !important;
-  background-color: #5F7C8A;
+  background-color: #eee;
   min-height: calc(100vh - 56px);
 }
 
@@ -10934,8 +10934,12 @@ form {
 }
 
 .sidebar .user-profile {
-  background-color: #8dabba !important;
+  background-color: #d1d1d1 !important;
   margin: 15px;
+}
+
+.sidebar a:hover {
+  background-color: #d1d1d1 !important;
 }
 
 .sidebar-wrapper .sidebar-header .user-pic {
@@ -10978,20 +10982,16 @@ form {
 }
 
 .dropdown-menu {
-  background-color: #8dabba !important;
-}
-
-.dropdown-menu a {
-  color: white !important;
+  background-color: #eee !important;
 }
 
 .dropdown-menu a:hover {
-  background-color: #33505d;
+  background-color: #d1d1d1;
 }
 
 #auth {
-  background: #007bff;
-  background: linear-gradient(to right, #0062E6, #33AEFF);
+  background: #343A40;
+  background: linear-gradient(to right, #343A40, #d1d1d1);
 }
 
 :root {
@@ -11001,7 +11001,7 @@ form {
 
 .card-signin {
   border: 0;
-  border-radius: 1rem;
+  border-radius: 0% !important;
   box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
@@ -11039,7 +11039,7 @@ form {
   font-size: 0.9rem;
   letter-spacing: 0.05rem;
   padding: 0.75rem 1rem;
-  border-radius: 2rem;
+  border-radius: 0;
 }
 
 .form-label-group {
@@ -11051,7 +11051,7 @@ form {
 .form-label-group > label {
   padding: var(--input-padding-y) var(--input-padding-x);
   height: auto;
-  border-radius: 2rem;
+  border-radius: 0;
 }
 
 .form-label-group > label {
@@ -11067,8 +11067,12 @@ form {
   cursor: text;
   /* Match the input under the label */
   border: 1px solid transparent;
-  border-radius: 0.25rem;
+  border-radius: 0;
   transition: all 0.1s ease-in-out;
+}
+
+.form-label-group input {
+  border-radius: 0% !important;
 }
 
 .form-label-group input::-webkit-input-placeholder {
@@ -11205,7 +11209,7 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 thead {
-  background-color: #5F7C8A;
+  background-color: #eee;
 }
 
 .card-signin {
@@ -11321,7 +11325,7 @@ thead {
   margin-bottom: auto;
   margin-top: auto;
   height: 46px;
-  background-color: #8dabba;
+  background-color: #d1d1d1;
   border-radius: 56px;
   padding: 6px;
 }
@@ -11342,12 +11346,12 @@ thead {
 }
 
 .searchbar:hover > .search_input {
-  caret-color: #33505d;
+  caret-color: #343A40;
   transition: width 0.4s linear;
 }
 
 .searchbar:hover > .search_icon {
-  background: #5F7C8A;
+  background: #eee;
   color: white;
 }
 
@@ -11376,6 +11380,10 @@ thead {
   margin-bottom: 3%;
   border-radius: 0.5rem;
   background: #fff;
+}
+
+.nav-tabs .nav-link.active {
+  color: #d1d1d1 !important;
 }
 
 .profile-img {

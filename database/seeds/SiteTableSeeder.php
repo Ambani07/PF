@@ -36,5 +36,65 @@ class SiteTableSeeder extends Seeder
             'suburb' => ', Cosmo City',
             'city' => ', Roodepoort'
         ]);
+
+        Site::create([
+            'customer_id' => 2,
+            'service_id' => 2,
+            'user_id' => 1,
+            'category_id' => 2,
+            'name' => 'Cosmo Mall',
+            'region_name' => 'WR',
+            'street' => 'Dawn Rd',
+            'suburb' => ', Cosmo City',
+            'city' => ', Roodepoort'
+        ]);
+
+        Site::create([
+            'customer_id' => 2,
+            'service_id' => 2,
+            'user_id' => 1,
+            'category_id' => 2,
+            'name' => 'Cosmo Mall',
+            'region_name' => 'WR',
+            'street' => 'Dawn Rd',
+            'suburb' => ', Cosmo City',
+            'city' => ', Roodepoort'
+        ]);
+
+        Site::create([
+            'customer_id' => 2,
+            'service_id' => 2,
+            'user_id' => 1,
+            'category_id' => 2,
+            'name' => 'Cosmo Mall',
+            'region_name' => 'WR',
+            'street' => 'Dawn Rd',
+            'suburb' => ', Cosmo City',
+            'city' => ', Roodepoort'
+        ]);
+
+        Site::create([
+            'customer_id' => 2,
+            'service_id' => 2,
+            'user_id' => 1,
+            'category_id' => 2,
+            'name' => 'Cosmo Mall',
+            'region_name' => 'WR',
+            'street' => 'Dawn Rd',
+            'suburb' => ', Cosmo City',
+            'city' => ', Roodepoort'
+        ]);
+
+        Site::create([
+            'customer_id' => 2,
+            'service_id' => 2,
+            'user_id' => 1,
+            'category_id' => 2,
+            'name' => 'Cosmo Mall',
+            'region_name' => 'WR',
+            'street' => 'Dawn Rd',
+            'suburb' => ', Cosmo City',
+            'city' => ', Roodepoort'
+        ]);
     }
 }
