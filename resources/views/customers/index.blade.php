@@ -14,7 +14,7 @@
     </ol>
     <h2 class="mb-5">Recent Customers</h2>
     <table class="table mt-5 shadow">
-        <thead class="thead-dark">
+        <thead class="text-dark">
           <tr>
               <th scope="col"># ID</th>
               <th scope="col">Name</th>
@@ -25,7 +25,7 @@
               <th scope="col">Date Created</th>
               <th></th>
               <th></th>
-              <th></th>
+              {{-- <th></th> --}}
           </tr>
         </thead>
         <tbody>
@@ -46,14 +46,14 @@
                     @endif
                   </td>
                   <td>{{$site->created_at}}</td>
-                  <td><a href="/customers/{{$site->id}}"> <i class="fa fa-eye text-muted"></i></a></td>
-                      <td><a href="/customers/{{$site->id}}/edit"><i class="fa fa-edit text-muted"></i></a></td>
-                      <td>
+                  <td><a href="/customers/{{$site->id}}"> view </a></td>
+                      <td><a href="/customers/{{$site->id}}/edit"> edit </a></td>
+                      {{-- <td>
                           {{ Form::open(['action' => ['CustomersController@destroy', $site->id], 'method'=> 'POST' , 'class' => 'delete ml-3 ']) }}
                           {{ Form::hidden('_method', 'DELETE') }}
                           {{ Form::button('<i class="fa fa-trash text-danger"></i>', ['type' => 'submit','class'=>'btn btn-light btn-sm']) }}
                       {{ Form::close() }}
-                      </td>
+                      </td> --}}
                 </tr>
               @endforeach
           

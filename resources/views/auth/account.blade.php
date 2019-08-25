@@ -129,7 +129,7 @@
                           <div class="row">
                               <div class="col-md-12">
                                   <label>Your Bio</label><br/>
-                                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In aut officia velit ipsum quisquam nesciunt beatae, inventore repellat porro atque. Similique corporis recusandae nihil voluptatum laborum doloremque natus! Corrupti, ullam.</p>
+                                  <p class="text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. In aut officia velit ipsum quisquam nesciunt beatae, inventore repellat porro atque. Similique corporis recusandae nihil voluptatum laborum doloremque natus! Corrupti, ullam.</p>
                               </div>
                           </div>
                       </div>

@@ -15,7 +15,7 @@
     <h1 class="text-muted text-center">{{$category->name}}</h1>
     @if (count($sites) > 0)
     <table class="table mt-5 shadow">
-            <thead class="thead-dark">
+        <thead class="text-dark">
               <tr>
                   <th scope="col"># ID</th>
                   <th scope="col">Name</th>
@@ -24,6 +24,7 @@
                   <th scope="col">Product</th>
                   <th scope="col">Status</th>
                   <th scope="col">Date Created</th>
+                  <th></th>
                   <th></th>
               </tr>
             </thead>
@@ -46,6 +47,7 @@
                       </td>
                       <td>{{$site->created_at}}</td>
                       <td><a href="/customers/{{$site->id}}"> view</a></td>
+                      <td><a href="/customers/{{$site->id}}/edit"> edit </a></td>
                       @if (Auth::user()->role->read_only == 0)
                         {{-- <td>
                             {{ Form::open(['action' => ['CustomersController@destroy', $site->id], 'method'=> 'POST' , 'class' => 'delete ml-3 ']) }}

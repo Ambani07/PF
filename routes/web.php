@@ -19,6 +19,9 @@ Route::get('', 'AdminController@index');
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('/search', 'DashboardController@search')->name('search');
 
+Route::get('/get-site-chart-data', 'DashboardController@getMonthlySitesData');
+
+
 Route::resource('customers', 'CustomersController');
 Route::resource('services', 'ServicesController');
 Route::resource('product', 'ProductController');

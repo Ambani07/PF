@@ -82,19 +82,19 @@
     </div>
   </div>
 
-  <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-          <div class="panel panel-default">
-              <div class="panel-heading">Dashboard</div>
-              <div class="panel-body">
-                  <canvas id="canvas" height="280" width="600"></canvas>
-              </div>
-          </div>
-      </div>
-  </div>
+      <div class="card mb-3">
 
+          <h2 class="text-dark">Line Graph</h2>
+          <p class="lead" >Customers per month</p>
+        <div class="card-body">
+          <canvas id="myAreaChart" width="80%" height="30"></canvas>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>
+
+  <div class="row">
   <table class="table mt-5 ">
-  <thead class="text-white">
+  <thead class="text-dark">
     <tr>
         <th scope="col"># ID</th>
         <th scope="col">Name</th>
@@ -126,7 +126,7 @@
             </td>
             <td>{{$site->created_at}}</td>
             @if (Auth::user()->role->read_only == 0)
-                <td><a href="/customers/{{$site->id}}"> <i class="fa fa-eye text-muted"></i></a></td>
+                <td><a href="/customers/{{$site->id}}"> view</a></td>
             @endif
           </tr>
         @endforeach
@@ -135,11 +135,14 @@
     @endif
   </tbody>
 </table>
+</div>
 @endsection
 
 @section('extra-js')
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="{{ asset('js/parallax.min.js') }}"></script>
+<script src="{{ url('js/Chart.min.js')}}" ></script>
+<script src="{{ url('js/chart-area.js')}}" ></script>
 <script>
 
     $(window).scroll(function(){
@@ -150,58 +153,7 @@
     });
 </script>
 
-<script src="https://raw.githubusercontent.com/nnnick/Chart.js/master/dist/Chart.bundle.js"></script>
-<script>
 
-  
-    var year = ['2013','2014','2015', '2016'];
-    // var data_click = {<?php echo $click; ?>;}
-    // var data_viewer = <?php echo $viewer; ?>;
-    var data_click = {!! json_encode($click, JSON_HEX_TAG) !!};
-    var data_viewer = {!! json_encode($viewer, JSON_HEX_TAG) !!};
-
-
-    console.log(data_viewer);
-
-
-    var barChartData = {
-        labels: year,
-        datasets: [{
-            label: 'Click',
-            backgroundColor: "rgba(220,220,220,0.5)",
-            data: data_click
-        }, {
-            label: 'View',
-            backgroundColor: "rgba(151,187,205,0.5)",
-            data: data_viewer
-        }]
-    };
-
-
-    window.onload = function() {
-        var ctx = document.getElementById("canvas").getContext("2d");
-        window.myBar = new Chart(ctx, {
-            type: 'bar',
-            data: barChartData,
-            options: {
-                elements: {
-                    rectangle: {
-                        borderWidth: 2,
-                        borderColor: 'rgb(0, 255, 0)',
-                        borderSkipped: 'bottom'
-                    }
-                },
-                responsive: true,
-                title: {
-                    display: true,
-                    text: 'Yearly Website Visitor'
-                }
-            }
-        });
-
-
-    };
-</script>
 
 
 

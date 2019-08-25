@@ -28,28 +28,61 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $sites = Site::all();
 
-        // $sites_count = Site::('')
-
-        $viewer = Site::select(DB::raw("SUM(name) as count"))
-        ->orderBy("created_at")
-        ->groupBy(DB::raw("year(created_at)"))
-        ->get()->toArray();
-        $viewer = array_column($viewer, 'count');
-
-        $click = Customer::select(DB::raw("SUM(name) as count"))
-            ->orderBy("created_at")
-            ->groupBy(DB::raw("year(created_at)"))
-            ->get()->toArray();
-        $click = array_column($click, 'count');
-
-        // dd($sites->count());
+        // return $this->getMonthlySitesData();
+        $sites = Site::orderBy('created_at', 'ASC')->get();
 
         
-        return view('pages.index')->with([  'sites' => $sites,
-                                            'viewer' => json_encode($viewer,JSON_NUMERIC_CHECK),
-                                            'click' => json_encode($click,JSON_NUMERIC_CHECK)]);
+        return view('pages.index')->with('sites', $sites);
+    }
+
+    function getAllMonths(){
+        $month_array = array();
+        $sites_dates = Site::orderBy('created_at', 'ASC')->pluck('created_at')->toJson();
+        $sites_dates = json_decode($sites_dates);
+
+        // dd($sites_dates);
+
+        if(!empty($sites_dates)){
+            foreach ($sites_dates as $key => $item) {
+                $date = new \DateTime($item);
+                $month_no = $date->format('m');
+                $month_name = $date->format('M');
+                $month_array[$month_no] = $month_name;
+                // return $month_name;
+            }
+        }
+
+        return $month_array;
+    }
+
+    function getMonthlySitesCount($month){
+        return  Site::whereMonth('created_at', $month)->get()->count();
+    }
+
+    function getMonthlySitesData(){
+
+        $monthly_sites_count_array = array();
+        $month_array = $this->getAllMonths();
+        $month_name_array = array();
+        if(!empty($month_array)){
+            foreach ($month_array as $month_no => $month_name) {
+                $monthly_sites_count = $this->getMonthlySitesCount($month_no);
+                \array_push($monthly_sites_count_array, $monthly_sites_count);
+                \array_push($month_name_array, $month_name);
+            }
+        }
+
+        $max_no = max($monthly_sites_count_array);
+        $max = round(($max_no + 10/2)/10) * 10;
+        $monthly_sites_data_array = array(
+            'months' => $month_name_array,
+            'sites_count_data' => $monthly_sites_count_array,
+            'max' => $max
+        );
+        
+
+        return $monthly_sites_data_array;
     }
 
     public function search(Request $request)
@@ -67,4 +100,6 @@ class DashboardController extends Controller
 
         return view('sites.search')->with('sites', $sites);
     }
+
+    
 }

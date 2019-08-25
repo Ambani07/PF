@@ -21,10 +21,6 @@ class AdminController extends Controller
     
     public function index(){
 
-        $sites = Site::all();
-        
-        $customers = Customer::orderBy('created_at')->get();
-
-        return view('pages.index')->with(['customers' => '', 'sites' => $sites]);
+        return redirect('dashboard');
     }
 }

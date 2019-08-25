@@ -9,26 +9,26 @@
     </li> --}}
     <li class="nav-item ">
         <a class="nav-link active" href="/dashboard">
-        <i class="fa fa-home mr-2 text-white"></i>
-            <span class="text-white ">Dashboard</span>
+        <i class="fa fa-home mr-2 text-dark"></i>
+            <span class="text-dark ">Dashboard</span>
         </a>
     </li>
     @if (Auth::user()->role->read_only == 0)
         <li class="nav-item dropdown">
             <a class="nav-link" href="/customers/create">
-            <i class="fa fa-plus mr-2 text-white"></i>
-                <span class="text-white">New Order</span>
+            <i class="fa fa-plus mr-2 text-dark"></i>
+                <span class="text-dark">New Order</span>
             </a>
         </li>
     @endif
     
 
-    <li class="nav-item dropdown">
+    <li class="nav-item dropdown text-dark">
             <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fa fa-users mr-2 text-white"></i>
-                <span class="text-white">Clients <i class="fa fa-caret-down pull-right"></i></span>
+            <i class="fa fa-users mr-2 text-dark"></i>
+                <span class="text-dark">Clients <i class="fa fa-caret-down pull-right"></i></span>
             </a>
-            <div class="dropdown-menu" aria-labelledby="pagesDropdown" >
+            <div class="dropdown-menu text-dark" aria-labelledby="pagesDropdown" >
                 <a class="dropdown-item" href="/customers">All</a>
            
                 <a class="dropdown-item" href="/product/{{1}}">BCX DI</a>
@@ -48,20 +48,20 @@
     @if (Auth::user()->role->read_only == 0)
         <li class="nav-item">
             <a class="nav-link" href="#">
-            <i class="fa fa-cog mr-2 text-white"></i>
-            <span class="text-white">Settings</span></a>
+            <i class="fa fa-cog mr-2 text-dark"></i>
+            <span class="text-dark">Settings</span></a>
         </li>
 
         <li class="nav-item">
             <a class="nav-link" href="/register">
-            <i class="fa fa-user-plus mr-2 text-white"></i>
-            <span class="text-white">Add User</span></a>
+            <i class="fa fa-user-plus mr-2 text-dark"></i>
+            <span class="text-dark">Add User</span></a>
         </li>
     @endif
     <li class="nav-item">
         <a class="nav-link" href="/account">
-        <i class="fa fa-user mr-2 text-white"></i>
-        <span class="text-white">My Account</span></a>
+        <i class="fa fa-user mr-2 text-dark"></i>
+        <span class="text-dark">My Account</span></a>
     </li>
     
 </ul>
