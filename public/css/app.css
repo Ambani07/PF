@@ -10649,6 +10649,11 @@ html {
   min-height: 100%;
 }
 
+#auth {
+  background-image: url(/images/cabels.jpg?1a7c8f950fe311219393e6bdcbe42ba4) no-repeat center center fixed;
+  background-size: cover;
+}
+
 h1,
 h2,
 h3,
@@ -10757,6 +10762,10 @@ form {
   width: 100%;
 }
 
+.navbar-nav .nav-item.active {
+  background-color: #8dabba !important;
+}
+
 .navbar-nav .nav-item.active .nav-link {
   color: #fff;
 }
@@ -10853,6 +10862,7 @@ form {
 @media (min-width: 768px) {
   .sidebar {
     width: 225px !important;
+    border: none;
   }
 
   .sidebar .nav-item .nav-link {
@@ -10872,6 +10882,7 @@ form {
     position: static !important;
     margin: 0 1rem;
     top: 0;
+    border: none;
   }
 
   .sidebar .nav-item.dropdown .dropdown-toggle::after {
@@ -10966,27 +10977,81 @@ form {
   color: #5cb85c;
 }
 
+.dropdown-menu {
+  background-color: #8dabba !important;
+}
+
+.dropdown-menu a {
+  color: white !important;
+}
+
+.dropdown-menu a:hover {
+  background-color: #33505d;
+}
+
+#auth {
+  background: #007bff;
+  background: linear-gradient(to right, #0062E6, #33AEFF);
+}
+
 :root {
-  --input-padding-x: 0.75rem;
+  --input-padding-x: 1.5rem;
   --input-padding-y: 0.75rem;
 }
 
-.card-login {
-  max-width: 25rem;
+.card-signin {
+  border: 0;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
-.card-register {
-  max-width: 40rem;
+.card-signin .card-title {
+  margin-bottom: 2rem;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.card-signin .card-img-left {
+  width: 45%;
+  /* Link to your background image using in the property below! */
+  background: scroll center url("/images/cabels.jpg") !important;
+  background-size: cover;
+}
+
+.card-signin .card-body {
+  padding: 2rem;
+}
+
+.login {
+  min-height: 100vh;
+}
+
+.image {
+  min-height: 70vh;
+}
+
+.login-heading {
+  font-weight: 300;
+}
+
+.btn-login {
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  padding: 0.75rem 1rem;
+  border-radius: 2rem;
 }
 
 .form-label-group {
   position: relative;
+  margin-bottom: 1rem;
 }
 
 .form-label-group > input,
 .form-label-group > label {
   padding: var(--input-padding-y) var(--input-padding-x);
   height: auto;
+  border-radius: 2rem;
 }
 
 .form-label-group > label {
@@ -10999,6 +11064,8 @@ form {
   /* Override default `<label>` margin */
   line-height: 1.5;
   color: #495057;
+  cursor: text;
+  /* Match the input under the label */
   border: 1px solid transparent;
   border-radius: 0.25rem;
   transition: all 0.1s ease-in-out;
@@ -11034,6 +11101,32 @@ form {
   padding-bottom: calc(var(--input-padding-y) / 3);
   font-size: 12px;
   color: #777;
+}
+
+/* Fallback for Edge
+-------------------------------------------------- */
+
+@supports (-ms-ime-align: auto) {
+  .form-label-group > label {
+    display: none;
+  }
+
+  .form-label-group input::-ms-input-placeholder {
+    color: #777;
+  }
+}
+
+/* Fallback for IE
+-------------------------------------------------- */
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .form-label-group > label {
+    display: none;
+  }
+
+  .form-label-group input:-ms-input-placeholder {
+    color: #777;
+  }
 }
 
 footer.sticky-footer {
@@ -11224,11 +11317,172 @@ thead {
   background-color: #3b5998;
 }
 
+.searchbar {
+  margin-bottom: auto;
+  margin-top: auto;
+  height: 46px;
+  background-color: #8dabba;
+  border-radius: 56px;
+  padding: 6px;
+}
+
+.search_input {
+  color: white;
+  border: 0;
+  outline: 0;
+  background: none;
+  width: 0;
+  caret-color: transparent;
+  line-height: 40px;
+  transition: width 0.4s linear;
+  padding: 0 10px;
+  width: 400px;
+  caret-color: red;
+  transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_input {
+  caret-color: #33505d;
+  transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_icon {
+  background: #5F7C8A;
+  color: white;
+}
+
+.search_icon {
+  height: 35px;
+  width: 35px;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: white;
+}
+
 .breadcrumb {
   border-radius: 0px;
 }
 
 .sidebar .nav-item.dropdown .dropdown-toggle::after {
   visibility: hidden !important;
+}
+
+.emp-profile {
+  padding: 3%;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  border-radius: 0.5rem;
+  background: #fff;
+}
+
+.profile-img {
+  text-align: center;
+}
+
+.profile-img img {
+  width: 50%;
+  height: 100%;
+}
+
+.profile-img .file {
+  position: relative;
+  overflow: hidden;
+  margin-top: -20%;
+  width: 45%;
+  border: none;
+  border-radius: 0;
+  font-size: 15px;
+  background: #212529b8;
+}
+
+.profile-img .file input {
+  position: absolute;
+  opacity: 0;
+  right: 0;
+  top: 0;
+}
+
+.profile-head h5 {
+  color: #333;
+}
+
+.profile-head h6 {
+  color: #0062cc;
+}
+
+.profile-edit-btn {
+  border: none;
+  border-radius: 1.5rem;
+  width: 70%;
+  padding: 2%;
+  font-weight: 600;
+  color: #6c757d;
+  cursor: pointer;
+}
+
+.proile-rating {
+  font-size: 12px;
+  color: #818182;
+  margin-top: 5%;
+}
+
+.proile-rating span {
+  color: #495057;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.profile-head .nav-tabs {
+  margin-bottom: 5%;
+}
+
+.profile-head .nav-tabs .nav-link {
+  font-weight: 600;
+  border: none;
+}
+
+.profile-head .nav-tabs .nav-link.active {
+  border: none;
+  border-bottom: 2px solid #0062cc;
+}
+
+.profile-work {
+  padding: 14%;
+  margin-top: -15%;
+}
+
+.profile-work p {
+  font-size: 12px;
+  color: #818182;
+  font-weight: 600;
+  margin-top: 10%;
+}
+
+.profile-work a {
+  text-decoration: none;
+  color: #495057;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.profile-work ul {
+  list-style: none;
+}
+
+.profile-tab label {
+  font-weight: 600;
+}
+
+.profile-tab p {
+  font-weight: 600;
+  color: #0062cc;
+}
+
+.avatar {
+  max-width: 50px !important;
+  border-radius: 50%;
 }
 

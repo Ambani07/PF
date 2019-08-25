@@ -12,8 +12,11 @@
       &.active {
         .nav-link {
           color: $white;
+          
         }
+        background-color: $color-light !important;
       }
+      
       &.dropdown {
         .dropdown-toggle {
           &::after {
@@ -43,6 +46,7 @@
           // remove outline for Safari and Firefox
           outline: none;
         }
+
         .badge {
           position: absolute;
           margin-left: 0.75rem;
@@ -87,6 +91,7 @@
   @media (min-width: 768px) {
     .sidebar {
       width: $sidebar-base-width !important;
+      border: none;
   
       .nav-item {
         .nav-link {
@@ -105,6 +110,7 @@
           margin: 0 1rem;
           // Position fix for Firefox
           top: 0;
+          border: none;
         }
         &.dropdown .dropdown-toggle::after {
           display: block;

@@ -1,12 +1,12 @@
 <!-- Sidebar -->
 
 <ul class="sidebar navbar-nav">
-    <li class="nav-item user-profile text-center p-3 hidden-xs-down">
+    {{-- <li class="nav-item user-profile text-center p-3 hidden-xs-down">
         
         <img class="img-responsive mb-3 user-img mx-auto d-block" style="border-radius: 50%;" src="https://via.placeholder.com/80" alt="User picture">
     <span class="text-light">{{Auth::user()->name}}</span><strong class="text-light ml-2">{{Auth::user()->surname}}</strong>
         <small class="d-block text-light">{{Auth::user()->role->name}}</small>
-    </li>
+    </li> --}}
     <li class="nav-item ">
         <a class="nav-link active" href="/dashboard">
         <i class="fa fa-home mr-2 text-white"></i>
@@ -29,7 +29,7 @@
                 <span class="text-white">Clients <i class="fa fa-caret-down pull-right"></i></span>
             </a>
             <div class="dropdown-menu" aria-labelledby="pagesDropdown" >
-                <a class="dropdown-item" href="/product">All</a>
+                <a class="dropdown-item" href="/customers">All</a>
            
                 <a class="dropdown-item" href="/product/{{1}}">BCX DI</a>
             
@@ -41,11 +41,7 @@
                 @if (Auth::user()->role->read_only == 0)
                 <hr>
                     <a class="dropdown-item" href="/customers/create">New Order</a>
-                    
-                    <a class="dropdown-item" href="#">Upgrade Bandwidth</a>
 
-                    <a class="dropdown-item" href="#">Downgrade Bandwidth</a>
-                    
                 @endif
             </div>
         </li>
@@ -63,7 +59,7 @@
         </li>
     @endif
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="/account">
         <i class="fa fa-user mr-2 text-white"></i>
         <span class="text-white">My Account</span></a>
     </li>

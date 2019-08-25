@@ -47,3 +47,15 @@
     margin-right: 4px;
     color: #5cb85c;
   }
+
+  .dropdown-menu{
+    background-color: $color-light !important;
+  }
+
+  .dropdown-menu a{
+    color: white !important;
+  }
+
+  .dropdown-menu a:hover{
+    background-color: $color-dark;
+  }

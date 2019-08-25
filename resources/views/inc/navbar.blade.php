@@ -10,22 +10,37 @@
 
     <ul class="navbar-nav ml-auto mr-0 mr-md-3 my-2 my-md-0 ">
 
-      
+      <li class="nav-item dropdown no-arrow ">
+        <div class="d-flex justify-content-center h-100">
+
+            <form class="searchbar" action="{{route('search')}}" method="get">
+            <input class="search_input" value="{{ request()->input('search') }}" type="text" name="search" placeholder="Search...">
+            <a href="#" class="search_icon"><i class="fa fa-search"></i></a>
+            </form>
+
+        </div>
+      </li>
       <li class="nav-item dropdown no-arrow ">
         
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             @if (Auth::check())
-              <small class="text-white">{{Auth::user()->role->name}}</small> <span class="text-white">{{Auth::user()->name}}</span> 
+              <span class="text-white">{{Auth::user()->name}}</span> 
+              <i class="fa fa-caret-down text-white" ></i>
             @endif
-            <i class="fa fa-user-circle text-white fa-fw ml-2"></i>
-            <i class="fa fa-caret-down text-white pull-right pt-1 ml-3"></i>
+            @if (!empty(Auth::user()->avatar))
+              {{-- <img src="#" alt="{{asset('images/avatars/{{ Auth::user()->avatar}}')" > --}}
+              <img class="ml-2 avatar" src="/images/avatars/{{Auth::user()->avatar}}" alt="avatar">
+            @else
+              <img class="avatar" src="https://ui-avatars.com/api/?size=300&name={{ Auth::user()->name }}+{{ Auth::user()->surname }}" alt="default avatar"/>
+            @endif
+            
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
             @if (Auth::user()->role->read_only == 0)
-              <a class="dropdown-item" href="#"><i class="fa fa-user-circle"></i> Settings</a>
+              <a class="dropdown-item" href="#"> Settings</a>
             @endif
           
-          <a class="dropdown-item" href="#">My Account</a>
+          <a class="dropdown-item" href="/account"> My Account</a>
           <div class="dropdown-divider"></div>
           @if (Auth::check())
             <a class="dropdown-item logout" data-toggle="modal" data-target="#logoutModal">Logout</a>
